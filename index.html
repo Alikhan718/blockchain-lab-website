@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain & Fintech Lab | Nazarbayev University</title>
+    <meta name="description" content="Первая в Казахстане и СНГ университетская блокчейн-лаборатория. Исследования, образование и коммерциализация блокчейн-технологий.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='Arial' font-weight='bold' fill='%23d2ff1e'%3EB%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom Fonts from Brand Guidelines -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">B</div>
+                <span class="logo-text">Blockchain Lab</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active" data-translate="nav.home">Главная</a>
+                <a href="pages/about.html" class="nav-link" data-translate="nav.about">О лаборатории</a>
+                <a href="pages/research.html" class="nav-link" data-translate="nav.research">Исследования</a>
+                <a href="pages/education.html" class="nav-link" data-translate="nav.education">Образование</a>
+                <a href="pages/projects.html" class="nav-link" data-translate="nav.projects">Проекты</a>
+                <a href="pages/team.html" class="nav-link" data-translate="nav.team">Команда</a>
+                <a href="pages/news.html" class="nav-link" data-translate="nav.news">Новости</a>
+                <a href="pages/contact.html" class="nav-link" data-translate="nav.contact">Контакты</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text" data-translate="hero.title">Blockchain & Fintech Lab</span>
+                    <br>
+                    <span class="subtitle" data-translate="hero.subtitle">Powered by Nazarbayev University</span>
+                </h1>
+                <p class="hero-description" data-translate="hero.description">
+                    Создаем будущее цифрового Казахстана. Исследования. Образование. Внедрение.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('projects')" data-translate="hero.btn1">
+                        Узнать о проектах
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')" data-translate="hero.btn2">
+                        Партнерство
+                    </button>
+                    <button class="btn btn-outline" onclick="scrollToSection('education')" data-translate="hero.btn3">
+                        Записаться на курс
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="blockchain-animation">
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">О лаборатории</h2>
+                <p class="section-subtitle">Первая в Казахстане и СНГ университетская блокчейн-лаборатория</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="mission-card">
+                        <h3>Наша миссия</h3>
+                        <p>Разработка <strong>KazSmartChain</strong> — национальной приватной блокчейн-инфраструктуры для повышения прозрачности, цифрового суверенитета и защиты данных госорганов и вузов.</p>
+                </div>
+
+                    <div class="problem-solution">
+                        <div class="problem">
+                            <h4>Проблема</h4>
+                            <p>Отсутствие безопасной, децентрализованной среды для хранения государственных данных и проведения исследований в области блокчейн-технологий.</p>
+                        </div>
+                        <div class="solution">
+                            <h4>Решение</h4>
+                            <p>Создание комплексной экосистемы, объединяющей исследования, образование и коммерциализацию блокчейн-технологий.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">30.8M</div>
+                        <div class="stat-label">тенге инвестиций</div>
+                </div>
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">выпускников в год</div>
+                        </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">основных направления</div>
+                        </div>
+                    </div>
+            </div>
+            
+            <div class="partners">
+                <h3>Наши партнеры</h3>
+                <div class="partners-logos">
+                    <div class="partner-logo">Nazarbayev University</div>
+                    <div class="partner-logo">Astana Business Campus</div>
+                    <div class="partner-logo">Фонд социального развития</div>
+                    <div class="partner-logo">JASAIM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Исследования и R&D</h2>
+                <p class="section-subtitle">Разработка KazSmartChain и передовые исследования</p>
+            </div>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="card-icon">🔗</div>
+                    <h3>KazSmartChain</h3>
+                    <p>Разработка приватного блокчейна для государственных нужд с фокусом на безопасность и масштабируемость.</p>
+                        </div>
+                
+                <div class="research-card">
+                    <div class="card-icon">📄</div>
+                    <h3>Смарт-контракты</h3>
+                    <p>Создание смарт-контрактов для автоматизации государственных услуг и повышения прозрачности.</p>
+                        </div>
+                
+                <div class="research-card">
+                    <div class="card-icon">💰</div>
+                    <h3>DeFi & CBDC</h3>
+                    <p>Исследования в области децентрализованных финансов и цифровых валют центральных банков.</p>
+                        </div>
+                
+                <div class="research-card">
+                    <div class="card-icon">🆔</div>
+                    <h3>Цифровые ID</h3>
+                    <p>Разработка децентрализованных идентификаторов (DID) для безопасной аутентификации.</p>
+                    </div>
+                
+                <div class="research-card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>DAO</h3>
+                    <p>Создание децентрализованных автономных организаций для управления и принятия решений.</p>
+                </div>
+
+                <div class="research-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Токенизация</h3>
+                    <p>Исследования по токенизации активов: образования, полезных ископаемых, углеродного следа.</p>
+                    </div>
+                </div>
+
+                <div class="research-outputs">
+                <h3>Научные результаты</h3>
+                    <div class="outputs-grid">
+                        <div class="output-item">
+                        <span class="output-number">10+</span>
+                        <span class="output-text">публикаций в IEEE, Springer</span>
+                        </div>
+                        <div class="output-item">
+                        <span class="output-number">5+</span>
+                        <span class="output-text">патентов</span>
+                        </div>
+                        <div class="output-item">
+                        <span class="output-number">3</span>
+                        <span class="output-text">хакатона в год</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Образование</h2>
+                <p class="section-subtitle">Подготовка нового поколения блокчейн-специалистов</p>
+            </div>
+
+            <div class="education-content">
+                <div class="education-types">
+                    <div class="education-card">
+                        <h3>Студенческие курсы</h3>
+                        <p>Элективные курсы для студентов Назарбаев Университета</p>
+                        <ul>
+                            <li>Основы блокчейн-технологий</li>
+                            <li>Криптография и безопасность</li>
+                            <li>Смарт-контракты и DeFi</li>
+                        </ul>
+                        </div>
+                    
+                    <div class="education-card">
+                        <h3>Профессиональные курсы</h3>
+                        <p>B2B и B2C программы для специалистов</p>
+                        <ul>
+                            <li>Блокчейн-разработка</li>
+                            <li>Криптоэкономика</li>
+                            <li>Токенизация активов</li>
+                        </ul>
+                    </div>
+
+                    <div class="education-card">
+                        <h3>Мастер-классы</h3>
+                        <p>Практические воркшопы и хакатоны</p>
+                        <ul>
+                            <li>Разработка dApps</li>
+                            <li>Аудит смарт-контрактов</li>
+                            <li>Управление DAO</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="education-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">выпускников в первый год</div>
+                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">курсов в семестр</div>
+                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">онлайн доступ к материалам</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ключевые проекты</h2>
+                <p class="section-subtitle">Пилотные проекты и коммерциализация</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-icon">🎓</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Jasaim Blockchain</h3>
+                        <p>Децентрализованная система верификации дипломов и академических записей. Обеспечивает прозрачность и защиту от подделок.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Solidity</span>
+                            <span class="tech-tag">IPFS</span>
+                            <span class="tech-tag">Web3</span>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">🏗️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>KazSmartChain</h3>
+                        <p>Национальная приватная блокчейн-инфраструктура для государственных органов и образовательных учреждений.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Consensus</span>
+                            <span class="tech-tag">Privacy</span>
+                            <span class="tech-tag">Scalability</span>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon">🏛️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>DAO & Impact Fund</h3>
+                        <p>Децентрализованная модель управления и инвестиций для поддержки инновационных проектов в сфере блокчейн.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Governance</span>
+                            <span class="tech-tag">Voting</span>
+                            <span class="tech-tag">Treasury</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Команда</h2>
+                <p class="section-subtitle">Эксперты в области блокчейн-технологий</p>
+            </div>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                        <div class="photo-placeholder">👨‍💼</div>
+                        </div>
+                        <div class="member-info">
+                        <h3>Руководитель от JASAIM</h3>
+                        <p>Эксперт в области блокчейн-технологий и криптографии</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-photo">
+                        <div class="photo-placeholder">👨‍🏫</div>
+                        </div>
+                        <div class="member-info">
+                        <h3>Проф. Adnan Yazici</h3>
+                        <p>Куратор от Назарбаев Университета</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-photo">
+                        <div class="photo-placeholder">👨‍🔬</div>
+                        </div>
+                        <div class="member-info">
+                        <h3>Проф. Benjamin Tyler</h3>
+                        <p>Научный руководитель исследований</p>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="join-team">
+                <h3>Присоединяйтесь к команде</h3>
+                <p>Мы ищем талантливых исследователей, разработчиков и специалистов в области блокчейн-технологий</p>
+                <button class="btn btn-primary">Подать заявку</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Новости и события</h2>
+                <p class="section-subtitle">Последние обновления и предстоящие мероприятия</p>
+            </div>
+
+                <div class="news-grid">
+                <div class="news-card featured">
+                    <div class="news-date">15 Марта 2024</div>
+                    <h3>Запуск первого хакатона Blockchain Lab</h3>
+                    <p>Приглашаем студентов и разработчиков принять участие в 48-часовом хакатоне по разработке блокчейн-решений для образования.</p>
+                    <a href="#" class="news-link">Подробнее →</a>
+                        </div>
+                
+                <div class="news-card">
+                    <div class="news-date">10 Марта 2024</div>
+                    <h3>Публикация в IEEE</h3>
+                    <p>Наша команда опубликовала исследование по безопасности приватных блокчейнов в журнале IEEE Transactions.</p>
+                    <a href="#" class="news-link">Читать →</a>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">5 Марта 2024</div>
+                    <h3>Партнерство с госорганами</h3>
+                    <p>Подписано соглашение о сотрудничестве с Министерством цифрового развития РК.</p>
+                    <a href="#" class="news-link">Подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Контакты</h2>
+                <p class="section-subtitle">Свяжитесь с нами для сотрудничества</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>г. Астана, Назарбаев Университет<br>Blockchain & Fintech Lab</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@blockchainlab.nu.edu.kz</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+7 (701) 520-27-20</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Обратная связь</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Тип обращения</option>
+                                <option value="partnership">Партнерство</option>
+                                <option value="education">Образование</option>
+                                <option value="research">Исследования</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Сообщение" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">Blockchain Lab</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">О лаборатории</a>
+                    <a href="#research">Исследования</a>
+                    <a href="#education">Образование</a>
+                    <a href="#projects">Проекты</a>
+                    <a href="#contact">Контакты</a>
+                    </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
