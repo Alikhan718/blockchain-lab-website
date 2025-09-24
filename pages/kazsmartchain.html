@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KazSmartChain — государственная блокчейн-платформа</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <img src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="about.html" class="nav-link" data-translate="nav.about">О нас</a>
+                <a href="research.html" class="nav-link" data-translate="nav.research">Исследования</a>
+                <div class="nav-dropdown">
+                    <a href="projects.html" class="nav-link dropdown-toggle active" data-translate="nav.projects">Проекты</a>
+                    <div class="dropdown-menu projects-menu">
+                        <div class="dropdown-list">
+                            <a href="#" class="dropdown-item">KazSmartChain</a>
+                            <a href="https://app.ediploma.kz/" class="dropdown-item">eDiploma</a>
+                            <a href="https://apartchain.org/" class="dropdown-item">ApartChain</a>
+                            <a href="projects.html" class="dropdown-item">DAO</a>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="../assets/images/bg2.png" alt="Project Preview" style="border-radius:12px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="education.html" class="nav-link dropdown-toggle" data-translate="nav.education">Образование</a>
+                    <div class="dropdown-menu education-menu">
+                        <div class="dropdown-list">
+                            <a href="#" class="dropdown-item" data-translate="education.courses">Курсы</a>
+                            <a href="#" class="dropdown-item" data-translate="education.workshops">Мастер-классы</a>
+                            <a href="#" class="dropdown-item" data-translate="education.elective">Элективный курс НУ</a>
+                            <a href="https://astanahub.com/en/techorda/school/130/" class="dropdown-item" data-translate="education.techorda">TechOrda</a>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="../assets/images/edu.png" alt="Education Preview" style="border-radius:12px;">
+                        </div>
+                    </div>
+                </div>
+                <a href="news.html" class="nav-link" data-translate="nav.news">Новости</a>
+                <a href="contact.html" class="nav-link" data-translate="nav.contact">Контакты</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ru">RU</button>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero: Futuristic Kazakhstan 3D Map Placeholder -->
+    <header class="ksc-hero">
+        <div class="ksc-hero-bg">
+            <div class="ksc-hero-glow"></div>
+            <div class="ksc-hero-grid"></div>
+        </div>
+        <div class="container ksc-hero-content">
+            <h1 class="ksc-title">KazSmartChain</h1>
+            <p class="ksc-subtitle">Государственная блокчейн-платформа Казахстана для суверенной, безопасной и масштабируемой цифровой экономики</p>
+            <div class="ksc-cta">
+                <a href="#download" class="btn btn-primary">Скачать LitePaper</a>
+            </div>
+        </div>
+        <div class="ksc-map-placeholder">
+            <img src="../assets/images/projects/kz-3d-fix-closer.png" alt="Kazakhstan Map" class="ksc-map-image">
+        </div>
+    </header>
+
+    <!-- Value Proposition -->
+    <section class="ksc-section ksc-values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Зачем нужна собственная блокчейн-инфраструктура?</h2>
+                <p class="section-subtitle">Суверенность данных, доверие, прозрачность и ускорение цифровых сервисов для граждан и бизнеса</p>
+            </div>
+            <div class="ksc-values-layout">
+                <ul class="ksc-values-list" id="kscValuesList">
+                    <li class="ksc-value-item active" data-key="sovereignty">Суверенность и контроль</li>
+                    <li class="ksc-value-item" data-key="security">Безопасность и доверие</li>
+                    <li class="ksc-value-item" data-key="scalability">Масштабируемость</li>
+                    <li class="ksc-value-item" data-key="interop">Интероперабельность</li>
+                </ul>
+                <div class="ksc-values-detail" id="kscValuesDetail">
+                    <div class="ksc-detail-banner">
+                        <img src="../assets/images/illustrations/law.png" alt="Sovereignty" onerror="this.style.display='none'">
+                    </div>
+                    <div class="ksc-detail-text">
+                        <h3 id="kscDetailTitle">Суверенность и контроль</h3>
+                        <p id="kscDetailBody">Данные и ключевые реестры управляются в национальном периметре. Политики доступа и конфиденциальности соответствуют законодательству Казахстана.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="ksc-section ksc-arch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Архитектура</h2>
+                <p class="section-subtitle">Слои сети, роли узлов и сервисные компоненты</p>
+            </div>
+            <div class="ksc-arch-grid">
+                <div class="ksc-arch-card">
+                    <h3>Сетевой слой</h3>
+                    <p>Устойчивый p2p-меш, защищённые каналы, приоритетные маршруты для органов власти и критичных сервисов, DDoS-митигация на уровне протокола.</p>
+                </div>
+                <div class="ksc-arch-card">
+                    <h3>Консенсус</h3>
+                    <p>Конфигурируемые алгоритмы (PoA/IBFT/BFT‑варианты) с динамическими валидаторами, финальностью блоков и быстрым временем подтверждения.</p>
+                </div>
+                <div class="ksc-arch-card">
+                    <h3>Смарт‑контракты</h3>
+                    <p>Совместимость с EVM, поддержка стандартов токенов, модульных библиотек и on‑chain доступов. Инструменты для аудита и формальной верификации.</p>
+                </div>
+                <div class="ksc-arch-card">
+                    <h3>Идентичность</h3>
+                    <p>Децентрализованные идентификаторы (DID), проверяемые креденшалы (VC), интеграция с eGov и ведомственными системами учётных записей.</p>
+                </div>
+                <div class="ksc-arch-card">
+                    <h3>Данные и приватность</h3>
+                    <p>Селективные раскрытия, ZK‑подписи, конфиденциальные каналы для чувствительных реестров. Хранение больших объектов off‑chain с доказательствами целостности.</p>
+                </div>
+                <div class="ksc-arch-card">
+                    <h3>Наблюдаемость</h3>
+                    <p>Мониторинг узлов и транзакций, журнал действий, SIEM‑интеграция, алертинг и продвинутая телеметрия для SRE‑команд.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Deep Dive -->
+    <section class="ksc-section ksc-tech">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Технические детали</h2>
+                <p class="section-subtitle">Сжатое изложение основных положений из KazSmartChain LitePaper</p>
+            </div>
+            <div class="ksc-tech-grid">
+                <div class="ksc-tech-card">
+                    <h3>Модель доверия</h3>
+                    <p>Список валидаторов управляется ончейн‑голосованием с порогами, поддерживается разделение полномочий (governance, validation, audit). Возможен мульти‑региональный деплой.</p>
+                </div>
+                <div class="ksc-tech-card">
+                    <h3>Производительность</h3>
+                    <p>Параллелизация исполнения, батчинг транзакций и оптимизация сетевого стека обеспечивают низкие задержки и высокую пропускную способность при устойчивости к отказам.</p>
+                </div>
+                <div class="ksc-tech-card">
+                    <h3>Безопасность</h3>
+                    <p>Аппаратные модули (HSM), ротация ключей, политики KMS, обязательный аудит смарт‑контрактов, защита от MEV/реорганизаций на уровне конфигурации сети.</p>
+                </div>
+                <div class="ksc-tech-card">
+                    <h3>Токенизация</h3>
+                    <p>Нативная поддержка токенов активов: недвижимость, ценные бумаги, права доступа. Стандарты совместимы с институциональными требованиями (KYC/AML).</p>
+                </div>
+                <div class="ksc-tech-card">
+                    <h3>Совместимость</h3>
+                    <p>Мосты и стандарты кросс‑чейн взаимодействия, API‑шлюзы для интеграции с eGov, банковскими шинами и корпоративными системами.</p>
+                </div>
+                <div class="ksc-tech-card">
+                    <h3>Экосистема</h3>
+                    <p>SDK, песочницы для пилотов, маркетплейс решений и реестров, образовательные треки для разработчиков и заказчиков.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="ksc-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ключевые сценарии</h2>
+                <p class="section-subtitle">Практические кейсы для государства, бизнеса и образования</p>
+            </div>
+            <div class="ksc-usecase-grid">
+                <div class="ksc-usecase">
+                    <h3>Электронные реестры и документы</h3>
+                    <p>Реестр лицензий, дипломов, сертификатов, земельных участков. Проверяемость и моментальная валидация статуса.</p>
+                </div>
+                <div class="ksc-usecase">
+                    <h3>Финансовые сервисы</h3>
+                    <p>Токенизация активов, расчётные токены, управляемые приватные платежные каналы с соблюдением регуляторных требований.</p>
+                </div>
+                <div class="ksc-usecase">
+                    <h3>Образование и наука</h3>
+                    <p>Проверяемые креденшалы, репутационные метрики, открытые научные данные с гарантией целостности.</p>
+                </div>
+                <div class="ksc-usecase">
+                    <h3>Цифровая идентичность</h3>
+                    <p>DID/VC‑модель для граждан и организаций, безопасный доступ к услугам и делегирование полномочий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="ksc-section ksc-roadmap">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Дорожная карта</h2>
+                <p class="section-subtitle">Этапы развития платформы</p>
+            </div>
+            <div class="ksc-timeline" id="kscTimeline">
+                <div class="ksc-timeline-track">
+                    <div class="ksc-timeline-progress" id="kscTimelineProgress"></div>
+                </div>
+                <div class="ksc-timeline-points">
+                    <button class="ksc-timeline-point active" data-index="0">
+                        <span class="year">2025</span>
+                        <span class="desc">Пилоты с ведомствами, PoC‑интеграции, тестовая сеть</span>
+                    </button>
+                    <button class="ksc-timeline-point" data-index="1">
+                        <span class="year">2026</span>
+                        <span class="desc">Запуск прод‑сети, SDK/маркетплейс, мосты</span>
+                    </button>
+                    <button class="ksc-timeline-point" data-index="2">
+                        <span class="year">2027+</span>
+                        <span class="desc">Мульти‑региональная масштабируемость, совместимость</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="ksc-section ksc-download">
+        <div class="container">
+            <div class="ksc-download-box ksc-download-layout">
+                <div class="ksc-doc-cover">
+                    <img src="../assets/litepaper.png" alt="LitePaper Cover" class="ksc-doc-image" onerror="this.style.display='none'">
+                </div>
+                <div class="ksc-doc-actions">
+                    <h3>Скачать KazSmartChain LitePaper</h3>
+                    <p>Подробное описание целей, архитектуры, механизмов безопасности и сценариев использования платформы.</p>
+                    <div class="ksc-cta">
+                        <a href="../assets/KazSmartChainLitePaper.pdf" class="btn btn-primary" download>Скачать PDF</a>
+                        <a href="../assets/KazSmartChainLitePaper.pdf" class="btn btn-outline" target="_blank">Открыть в новой вкладке</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-logo-col">
+                    <a href="../index.html">
+                        <img class="logo-image" src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo">
+                    </a>
+                </div>
+                <div class="footer-links-col">
+                    <div class="footer-section">
+                        <h4>О нас</h4>
+                        <a href="about.html">О лаборатории</a>
+                        <a href="research.html">Исследования</a>
+                        <a href="news.html">Новости</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Проекты</h4>
+                        <a href="projects.html">Все проекты</a>
+                        <a href="projects.html" class="footer-sub">KazSmartChain</a>
+                        <a href="https://app.ediploma.kz/" class="footer-sub">eDiploma</a>
+                        <a href="https://apartchain.org/" class="footer-sub">ApartChain</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Образование</h4>
+                        <a href="education.html">Все программы</a>
+                        <a href="#" class="footer-sub">Курсы</a>
+                        <a href="#" class="footer-sub">Мастер-классы</a>
+                        <a href="#" class="footer-sub">Элективный курс НУ</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Контакты</h4>
+                        <a href="contact.html">Связаться с нами</a>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/blockchain.fintech.lab/" class="social-link">Instagram</a>
+                            <a href="https://www.linkedin.com/company/jasaim" class="social-link">LinkedIn</a>
+                            <a href="https://t.me/bflabnu" class="social-link">Telegram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

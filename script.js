@@ -422,7 +422,7 @@ const translations = {
         'education.gallery.subtitle': 'Білім беру процесінен сәттер',
         'education.gallery.item1.title': 'Кәсіби курстар',
         'education.gallery.item1.desc': 'Блокчейн және ИИ бойынша B2B оқыту',
-        'education.gallery.item2.title': 'Мастер-класстар',
+        'education.gallery.item2.title': 'Мастер-кластар',
         'education.gallery.item2.desc': 'Сарапшылардан практикалық сабақтар',
         'education.gallery.item3.title': 'НУ элективтік курсы',
         'education.gallery.item3.desc': 'SEDS-пен бірлескен әзірлеу',
@@ -738,7 +738,7 @@ function initializeCarousel() {
     setInterval(() => {
         currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
         updateCarousel();
-    }, 5000);
+    }, 7000);
 }
 
 function changeSlide(direction) {
@@ -770,3 +770,84 @@ function updateCarousel() {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeCarousel);
+
+// KSC interactive values and timeline
+(function(){
+  const valuesList = document.getElementById('kscValuesList');
+  const detail = document.getElementById('kscValuesDetail');
+  if (valuesList && detail) {
+    const titleEl = document.getElementById('kscDetailTitle');
+    const bodyEl = document.getElementById('kscDetailBody');
+    const banner = detail.querySelector('.ksc-detail-banner');
+
+    const data = {
+      sovereignty: {
+        title: 'Суверенность и контроль',
+        text: 'Данные и ключевые реестры управляются в национальном периметре. Политики доступа и конфиденциальности соответствуют законодательству Казахстана.',
+        img: '../assets/images/illustrations/law.png'
+      },
+      security: {
+        title: 'Безопасность и доверие',
+        text: 'Криптографическая неизменяемость записей, прослеживаемость действий и контроль доступа формируют доверие между ведомствами, бизнесом и гражданами.',
+        img: '../assets/images/illustrations/security.png'
+      },
+      scalability: {
+        title: 'Масштабируемость',
+        text: 'Оптимизированные консенсус‑протоколы, шардинг и батчинг транзакций обеспечивают высокую пропускную способность при низких задержках.',
+        img: '../assets/images/illustrations/scalability.png'
+      },
+      interop: {
+        title: 'Интероперабельность',
+        text: 'Поддержка стандартов совместимости, мостов и API‑шлюзов позволяет безопасно интегрировать внешние экосистемы и решения.',
+        img: '../assets/images/illustrations/interop.png'
+      }
+    };
+
+    const apply = (key) => {
+      const item = data[key];
+      if (!item) return;
+      detail.classList.add('is-updating');
+      window.setTimeout(() => {
+        titleEl.textContent = item.title;
+        bodyEl.textContent = item.text;
+        const img = document.createElement('img');
+        img.src = item.img;
+        img.alt = item.title;
+        img.onerror = () => { img.style.display = 'none'; };
+        banner.innerHTML = '';
+        banner.prepend(img);
+        window.setTimeout(() => detail.classList.remove('is-updating'), 20);
+      }, 120);
+    };
+
+    valuesList.querySelectorAll('.ksc-value-item').forEach(li => {
+      const key = li.getAttribute('data-key');
+      const handler = () => {
+        valuesList.querySelectorAll('.ksc-value-item').forEach(o => o.classList.remove('active'));
+        li.classList.add('active');
+        apply(key);
+      };
+      li.addEventListener('mouseenter', handler);
+      li.addEventListener('focus', handler);
+      li.addEventListener('click', handler);
+    });
+  }
+
+  const timeline = document.getElementById('kscTimeline');
+  if (timeline) {
+    const progress = document.getElementById('kscTimelineProgress');
+    const points = timeline.querySelectorAll('.ksc-timeline-point');
+    const setActive = (idx) => {
+      points.forEach((p,i)=>{
+        p.classList.toggle('active', i === idx);
+      });
+      const widths = [33.33, 66.66, 100];
+      progress.style.width = widths[idx] + '%';
+    };
+    points.forEach((p,i)=>{
+      p.addEventListener('mouseenter', ()=> setActive(i));
+      p.addEventListener('focus', ()=> setActive(i));
+      p.addEventListener('click', ()=> setActive(i));
+    });
+  }
+})();

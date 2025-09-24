@@ -27,10 +27,10 @@
                     <a href="projects.html" class="nav-link dropdown-toggle active" data-translate="nav.projects">Проекты</a>
                     <div class="dropdown-menu projects-menu">
                         <div class="dropdown-list">
-                            <a href="#" class="dropdown-item" data-translate="projects.kazsmartchain"><span class="dropdown-icon"><img src="../assets/images/icons/kazsmartchain-icon.svg" alt="KazSmartChain Icon"></span>KazSmartChain</a>
+                            <a href="kazsmartchain.html" class="dropdown-item" data-translate="projects.kazsmartchain"><span class="dropdown-icon"><img src="../assets/images/icons/kazsmartchain-icon.svg" alt="KazSmartChain Icon"></span>KazSmartChain</a>
                             <a href="https://app.ediploma.kz/" class="dropdown-item" data-translate="projects.ediploma"><span class="dropdown-icon"><img src="../assets/images/icons/ediploma-icon.svg" alt="eDiploma Icon"></span>eDiploma</a>
                             <a href="https://apartchain.org/" class="dropdown-item" data-translate="projects.apartchain"><span class="dropdown-icon"><img src="../assets/images/icons/apartchain-icon.svg" alt="ApartChain Icon"></span>ApartChain</a>
-                            <a href="#" class="dropdown-item" data-translate="projects.dao"><span class="dropdown-icon"><img src="../assets/images/icons/dao-icon.svg" alt="DAO Icon"></span>DAO</a>
+                            <a href="projects.html" class="dropdown-item" data-translate="projects.dao"><span class="dropdown-icon"><img src="../assets/images/icons/dao-icon.svg" alt="DAO Icon"></span>DAO</a>
                         </div>
                         <div class="dropdown-image">
                             <img src="../assets/images/bg2.png" alt="Project Preview" style="border-radius:12px;">
@@ -44,7 +44,7 @@
                             <a href="#" class="dropdown-item" data-translate="education.courses">Курсы</a>
                             <a href="#" class="dropdown-item" data-translate="education.workshops">Мастер-классы</a>
                             <a href="#" class="dropdown-item" data-translate="education.elective">Элективный курс НУ</a>
-                            <a href="#" class="dropdown-item" data-translate="education.techorda">TechOrda</a>
+                            <a href="https://astanahub.com/en/techorda/school/130/" class="dropdown-item" data-translate="education.techorda">TechOrda</a>
                         </div>
                         <div class="dropdown-image">
                             <img src="../assets/images/edu.png" alt="Education Preview" style="border-radius:12px;">
@@ -78,49 +78,63 @@
     </section>
 
     <!-- Projects Content -->
-    <section class="projects-grid">
+    <section class="projects-section">
         <div class="container">
-            <div class="projects-grid">
-                <div class="project-card featured">
-                    <div class="project-image">
-                        <div class="project-icon"><img src="../assets/images/icons/ediploma-icon.svg" alt="eDiploma"></div>
+            <div class="projects-list">
+                <!-- KazSmartChain -->
+                <div class="project-row project-kazsmartchain">
+                    <div class="project-visual">
+                        <img src="../assets/images/projects/kazsmartchain.png" alt="KazSmartChain Preview" onerror="this.style.display='none'">
                     </div>
-                    <div class="project-content">
-                        <h3 data-translate="projects.jasaim">Jasaim Blockchain</h3>
-                        <p data-translate="projects.jasaim.text">Децентрализованная система верификации дипломов и академических записей. Обеспечивает прозрачность и защиту от подделок.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Solidity</span>
-                            <span class="tech-tag">IPFS</span>
-                            <span class="tech-tag">Web3</span>
+                    <div class="project-info">
+                        <h3>KazSmartChain</h3>
+                        <p>Государственная блокчейн-платформа для цифровой трансформации Казахстана. Обеспечивает суверенность, безопасность и масштабируемость, поддерживает токенизацию, цифровую идентичность и прозрачный обмен данными для государственных и частных сервисов.</p>
+                        <ul class="project-features">
+                            <li>Поддержка цифровой экономики через токенизацию активов, цифровую идентичность и безопасный обмен данными.</li>
+                            <li>Использование в FinTech, EdTech и госуслугах для повышения прозрачности и снижения уровня мошенничества.</li>
+                            <li>Укрепление технологической независимости, снижение зависимости от зарубежных блокчейн-сетей.</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a href="../assets/KazSmartChainLitePaper.pdf" class="btn btn-primary" download>Скачать LitePaper</a>
+                            <a href="kazsmartchain.html" class="btn btn-outline">О проекте</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-icon"><img src="../assets/images/icons/kazsmartchain-icon.svg" alt="KazSmartChain"></div>
+                <!-- eDiploma -->
+                <div class="project-row project-ediploma reverse">
+                    <div class="project-visual">
+                        <img src="../assets/images/projects/ediploma.png" alt="eDiploma Preview" onerror="this.style.display='none'">
                     </div>
-                    <div class="project-content">
-                        <h3 data-translate="projects.kazsmartchain">KazSmartChain</h3>
-                        <p data-translate="projects.kazsmartchain.text">Национальная приватная блокчейн-инфраструктура для государственных органов и образовательных учреждений.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Consensus</span>
-                            <span class="tech-tag">Privacy</span>
-                            <span class="tech-tag">Scalability</span>
-                        </div>
+                    <div class="project-info">
+                        <h3>eDiploma</h3>
+                        <p>eDiploma — цифровая система выдачи и проверки дипломов на блокчейне. Университеты экономят ресурсы, студенты получают защищённые и уникальные цифровые документы, а работодатели могут мгновенно проверить подлинность квалификаций.</p>
+                        <a href="https://app.ediploma.kz/" class="btn btn-primary" target="_blank">Перейти к проекту</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-icon"><img src="../assets/images/icons/dao-icon.svg" alt="DAO"></div>
+                <!-- ApartChain -->
+                <div class="project-row project-apartchain">
+                    <div class="project-visual">
+                        <img src="../assets/images/projects/apartchain.png" alt="ApartChain Preview" onerror="this.style.display='none'">
                     </div>
-                    <div class="project-content">
-                        <h3 data-translate="projects.dao">DAO & Impact Fund</h3>
-                        <p data-translate="projects.dao.text">Децентрализованная модель управления и инвестиций для поддержки инновационных проектов в сфере блокчейн.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Governance</span>
-                            <span class="tech-tag">Voting</span>
-                            <span class="tech-tag">Treasury</span>
-                        </div>
+                    <div class="project-info">
+                        <h3>ApartChain</h3>
+                        <p>Платформа для инвестирования в недвижимость. Позволяет безопасно и прозрачно приобретать доли в различных объектах, делая инвестиции доступными для каждого.</p>
+                        <ul class="project-features">
+                            <li>Инвестируйте в 1 кв. метр недвижимости с малых сумм</li>
+                            <li>Возможность инвестировать в любые объекты: от квартир до бизнес-центров с минимальными вложениями благодаря токенизации</li>
+                        </ul>
+                        <a href="https://apartchain.org/" class="btn btn-primary" target="_blank">Перейти к проекту</a>
+                    </div>
+                </div>
+                <!-- Impact Fund DAO -->
+                <div class="project-row project-dao reverse">
+                    <div class="project-visual">
+                        <img src="../assets/images/projects/impactdao.png" alt="DAO Preview" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <h3>Impact Fund DAO</h3>
+                        <p>Impact Fund DAO — децентрализованная платформа для коллективных инвестиций и управления проектами. Позволяет участникам голосовать и принимать решения по распределению средств с помощью токенов.</p>
+                        <a href="#" class="btn btn-primary disabled" tabindex="-1" aria-disabled="true">Скоро</a>
                     </div>
                 </div>
             </div>
@@ -163,10 +177,10 @@
                         <h4>Контакты</h4>
                         <a href="contact.html">Связаться с нами</a>
                         <div class="footer-social">
-                            <a href="#" class="social-link">LinkedIn</a>
-                            <a href="#" class="social-link">Twitter</a>
-                            <a href="#" class="social-link">Telegram</a>
-                        </div>
+                            <a href="https://www.instagram.com/blockchain.fintech.lab/" class="social-link">Instagram</a>
+                            <a href="https://www.linkedin.com/company/jasaim" class="social-link">LinkedIn</a>
+                            <a href="https://t.me/bflabnu" class="social-link">Telegram</a>
+                          </div>
                     </div>
                 </div>
             </div>
