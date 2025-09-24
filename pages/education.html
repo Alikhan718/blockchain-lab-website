@@ -1,132 +1,453 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="education.title">Образование | Blockchain & Fintech Lab</title>
-    <meta name="description" content="Образовательные программы, курсы и мастер-классы Blockchain & Fintech Lab.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='Arial' font-weight='bold' fill='%23d2ff1e'%3EB%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="education.title">
+      Образование | Blockchain & Fintech Lab
+    </title>
+    <meta
+      name="description"
+      content="Образовательные программы, курсы и мастер-классы Blockchain & Fintech Lab."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='Arial' font-weight='bold' fill='%23d2ff1e'%3EB%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-icon">B</div>
-                <span class="logo-text">Blockchain Lab</span>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="../index.html" class="nav-link" data-translate="nav.home">Главная</a>
-                <a href="about.html" class="nav-link" data-translate="nav.about">О лаборатории</a>
-                <a href="research.html" class="nav-link" data-translate="nav.research">Исследования</a>
-                <a href="education.html" class="nav-link active" data-translate="nav.education">Образование</a>
-                <a href="projects.html" class="nav-link" data-translate="nav.projects">Проекты</a>
-                <a href="team.html" class="nav-link" data-translate="nav.team">Команда</a>
-                <a href="news.html" class="nav-link" data-translate="nav.news">Новости</a>
-                <a href="contact.html" class="nav-link" data-translate="nav.contact">Контакты</a>
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="ru">RU</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="kz">ҚАЗ</button>
-                </div>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="../index.html">
+            <img
+              src="../assets/images/BFLab_yellow_logo.png"
+              alt="Blockchain Lab Logo"
+              class="logo-image"
+            />
+          </a>
         </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="about.html" class="nav-link" data-translate="nav.about"
+            >О нас</a
+          >
+          <a href="research.html" class="nav-link" data-translate="nav.research"
+            >Исследования</a
+          >
+          <div class="nav-dropdown">
+            <a
+              href="projects.html"
+              class="nav-link dropdown-toggle"
+              data-translate="nav.projects"
+              >Проекты</a
+            >
+            <div class="dropdown-menu projects-menu">
+              <div class="dropdown-list">
+                <a
+                  href="#"
+                  class="dropdown-item"
+                  data-translate="projects.kazsmartchain"
+                  ><span class="dropdown-icon"
+                    ><img
+                      src="../assets/images/icons/kazsmartchain-icon.svg"
+                      alt="KazSmartChain Icon" /></span
+                  >KazSmartChain</a
+                >
+                <a
+                  href="https://app.ediploma.kz/"
+                  class="dropdown-item"
+                  data-translate="projects.ediploma"
+                  ><span class="dropdown-icon"
+                    ><img
+                      src="../assets/images/icons/ediploma-icon.svg"
+                      alt="eDiploma Icon" /></span
+                  >eDiploma</a
+                >
+                <a
+                  href="https://apartchain.org/"
+                  class="dropdown-item"
+                  data-translate="projects.apartchain"
+                  ><span class="dropdown-icon"
+                    ><img
+                      src="../assets/images/icons/apartchain-icon.svg"
+                      alt="ApartChain Icon" /></span
+                  >ApartChain</a
+                >
+                <a href="#" class="dropdown-item" data-translate="projects.dao"
+                  ><span class="dropdown-icon"
+                    ><img
+                      src="../assets/images/icons/dao-icon.svg"
+                      alt="DAO Icon" /></span
+                  >DAO</a
+                >
+              </div>
+              <div class="dropdown-image">
+                <img src="../assets/images/bg2.png" alt="Project Preview" style="border-radius:12px;">
+              </div>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a
+              href="education.html"
+              class="nav-link dropdown-toggle active"
+              data-translate="nav.education"
+              >Образование</a
+            >
+            <div class="dropdown-menu education-menu">
+              <div class="dropdown-list">
+                <a
+                  href="#"
+                  class="dropdown-item"
+                  data-translate="education.courses"
+                  >Курсы</a
+                >
+                <a
+                  href="#"
+                  class="dropdown-item"
+                  data-translate="education.workshops"
+                  >Мастер-классы</a
+                >
+                <a
+                  href="#"
+                  class="dropdown-item"
+                  data-translate="education.elective"
+                  >Элективный курс НУ</a
+                >
+                <a
+                  href="#"
+                  class="dropdown-item"
+                  data-translate="education.techorda"
+                  >TechOrda</a
+                >
+              </div>
+              <div class="dropdown-image">
+                <img src="../assets/images/edu.png" alt="Education Preview" style="border-radius:12px;">
+              </div>
+            </div>
+          </div>
+          <a href="news.html" class="nav-link" data-translate="nav.news"
+            >Новости</a
+          >
+          <a href="contact.html" class="nav-link" data-translate="nav.contact"
+            >Контакты</a
+          >
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <div class="lang-dropdown">
+              <button class="lang-btn" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+            </div>
+          </div>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
-            <h1 class="page-title" data-translate="education.title">Образование</h1>
-            <p class="page-subtitle" data-translate="education.subtitle">Подготовка нового поколения блокчейн-специалистов</p>
-        </div>
+      <div class="container">
+        <h1 class="page-title" data-translate="education.title">Образование</h1>
+        <p class="page-subtitle" data-translate="education.subtitle">
+          Подготовка нового поколения блокчейн-специалистов
+        </p>
+      </div>
     </section>
 
     <!-- Education Content -->
     <section class="education-content">
-        <div class="container">
-            <div class="education-types">
-                <div class="education-card">
-                    <h3 data-translate="education.student">Студенческие курсы</h3>
-                    <p data-translate="education.student.text">Элективные курсы для студентов Назарбаев Университета</p>
-                    <ul>
-                        <li data-translate="education.course.blockchain">Основы блокчейн-технологий</li>
-                        <li data-translate="education.course.crypto">Криптография и безопасность</li>
-                        <li data-translate="education.course.smart">Смарт-контракты и DeFi</li>
-                    </ul>
-                </div>
-                <div class="education-card">
-                    <h3 data-translate="education.professional">Профессиональные курсы</h3>
-                    <p data-translate="education.professional.text">B2B и B2C программы для специалистов</p>
-                    <ul>
-                        <li data-translate="education.course.dev">Блокчейн-разработка</li>
-                        <li data-translate="education.course.economics">Криптоэкономика</li>
-                        <li data-translate="education.course.token">Токенизация активов</li>
-                    </ul>
-                </div>
-                <div class="education-card">
-                    <h3 data-translate="education.workshops">Мастер-классы</h3>
-                    <p data-translate="education.workshops.text">Практические воркшопы и хакатоны</p>
-                    <ul>
-                        <li data-translate="education.course.dapps">Разработка dApps</li>
-                        <li data-translate="education.course.audit">Аудит смарт-контрактов</li>
-                        <li data-translate="education.course.dao">Управление DAO</li>
-                    </ul>
-                </div>
+      <div class="container">
+        <div class="education-types">
+          <div class="education-card">
+            <div class="education-image">
+              <img
+                src="../assets/images/education/courses.webp"
+                alt="Профессиональные курсы"
+                class="course-image"
+              />
             </div>
-            <div class="education-stats">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label" data-translate="education.graduates">выпускников в первый год</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label" data-translate="education.courses">курсов в семестр</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label" data-translate="education.online">онлайн доступ к материалам</div>
-                </div>
+            <div class="education-info">
+              <h3>Профессиональные курсы</h3>
+              <p>
+                B2B и B2C программы для отдельных специалистов и компаний по
+                направлениям Блокчейн, ИИ и Блокчейн криминалистики
+              </p>
+              <ul>
+                <li>Блокчейн-разработка</li>
+                <li>Искусственный интеллект в блокчейне</li>
+                <li>Блокчейн криминалистика</li>
+                <li>Криптоэкономика</li>
+              </ul>
+              <a href="#" class="btn btn-secondary">Узнать подробнее</a>
             </div>
+          </div>
+
+          <div class="education-card">
+            <div class="education-image">
+              <img
+                src="../assets/images/education/master.jpg"
+                alt="Мастер-классы"
+                class="course-image"
+              />
+            </div>
+            <div class="education-info">
+              <h3>Мастер-классы</h3>
+              <p>
+                Практические воркшопы и хакатоны по направлениям Блокчейн,
+                ФинТех, Криминалистика от ведущих специалистов страны
+              </p>
+              <ul>
+                <li>Разработка dApps</li>
+                <li>Аудит смарт-контрактов</li>
+                <li>Управление DAO</li>
+                <li>ФинТех решения</li>
+              </ul>
+              <a href="#" class="btn btn-secondary">Узнать подробнее</a>
+            </div>
+          </div>
+
+          <div class="education-card">
+            <div class="education-image">
+              <img
+                src="../assets/images/education/elective.png"
+                alt="Элективный курс НУ"
+                class="course-image"
+              />
+            </div>
+            <div class="education-info">
+              <h3>Элективный курс НУ</h3>
+              <p>
+                Курс в программе Назарбаевского университета, разрабатываемый
+                совместно с факультетом SEDS. Планируется к внедрению весной
+                2026 года
+              </p>
+              <ul>
+                <li>Основы блокчейн-технологий</li>
+                <li>Криптография и безопасность</li>
+                <li>Смарт-контракты и DeFi</li>
+                <li>Практические проекты</li>
+              </ul>
+              <a href="#" class="btn btn-secondary">Ознакомиться</a>
+            </div>
+          </div>
+
+          <div class="education-card">
+            <div class="education-image">
+              <img
+                src="../assets/images/education/techorda.jpg"
+                alt="TechOrda"
+                class="course-image"
+              />
+            </div>
+            <div class="education-info">
+              <h3>TechOrda</h3>
+              <p>
+                Программа развития человеческого капитала в IT сфере.
+                Предоставляет субсидирование обучения для подготовки
+                IT-специалистов в частных школах Республики Казахстан.
+              </p>
+              <div class="techorda-courses">
+                <h4>Наши курсы в TechOrda:</h4>
+                <div class="course-links">
+                  <a
+                    href="https://astanahub.com/en/techorda/course/594/"
+                    target="_blank"
+                    class="course-link"
+                    >Blockchain</a
+                  >
+                  <a
+                    href="https://astanahub.com/en/techorda/course/593/"
+                    target="_blank"
+                    class="course-link"
+                    >AI</a
+                  >
+                  <a
+                    href="https://astanahub.com/en/techorda/course/595/"
+                    target="_blank"
+                    class="course-link"
+                    >Cybersecurity in Crypto</a
+                  >
+                </div>
+              </div>
+              <a
+                href="https://astanahub.com/en/techorda/school/130/"
+                target="_blank"
+                class="btn btn-primary"
+                >Перейти на страницу школы</a
+              >
+            </div>
+          </div>
         </div>
+
+        <div class="education-stats">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">выпускников в первый год</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">корпоративных клиентов</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">онлайн доступ к материалам</div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Gallery Carousel Section -->
+    <section class="photo-carousel-section">
+      <div class="container">
+        <h2 class="section-title" data-translate="gallery.title">Галерея</h2>
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img
+                src="../assets/images/education/lecture.jpg"
+                alt="Профессиональные курсы"
+                class="carousel-image"
+              />
+              <div class="carousel-overlay">
+                <h3 data-translate="education.gallery.item1.title">
+                  Профессиональные курсы
+                </h3>
+                <p data-translate="education.gallery.item1.desc">
+                  B2B обучение по блокчейн и ИИ
+                </p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="../assets/images/education/master-class.jpg"
+                alt="Мастер-классы"
+                class="carousel-image"
+              />
+              <div class="carousel-overlay">
+                <h3 data-translate="education.gallery.item2.title">
+                  Мастер-классы
+                </h3>
+                <p data-translate="education.gallery.item2.desc">
+                  Практические занятия от экспертов
+                </p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="../assets/images/nu.jpg"
+                alt="Элективный курс НУ"
+                class="carousel-image"
+              />
+              <div class="carousel-overlay">
+                <h3 data-translate="education.gallery.item3.title">
+                  Элективный курс НУ
+                </h3>
+                <p data-translate="education.gallery.item3.desc">
+                  Совместная разработка с SEDS
+                </p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="../assets/images/education/techorda-bg.jpg"
+                alt="TechOrda"
+                class="carousel-image"
+              />
+              <div class="carousel-overlay">
+                <h3 data-translate="education.gallery.item4.title">TechOrda</h3>
+                <p data-translate="education.gallery.item4.desc">
+                  Программа развития IT-специалистов
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" onclick="changeSlide(-1)">
+              &#10094;
+            </button>
+            <button class="carousel-btn next" onclick="changeSlide(1)">
+              &#10095;
+            </button>
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Gallery Carousel Section -->
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">B</div>
-                    <span class="logo-text">Blockchain Lab</span>
-                </div>
-                <div class="footer-links">
-                    <a href="../index.html" data-translate="nav.home">Главная</a>
-                    <a href="about.html" data-translate="nav.about">О лаборатории</a>
-                    <a href="research.html" data-translate="nav.research">Исследования</a>
-                    <a href="education.html" data-translate="nav.education">Образование</a>
-                    <a href="projects.html" data-translate="nav.projects">Проекты</a>
-                    <a href="contact.html" data-translate="nav.contact">Контакты</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Telegram</a>
-                </div>
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-logo-col">
+            <a href="../index.html">
+              <img
+                class="logo-image"
+                src="../assets/images/BFLab_yellow_logo.png"
+                alt="Blockchain Lab Logo"
+              />
+            </a>
+          </div>
+          <div class="footer-links-col">
+            <div class="footer-section">
+              <h4>О нас</h4>
+              <a href="about.html">О лаборатории</a>
+              <a href="research.html">Исследования</a>
+              <a href="news.html">Новости</a>
             </div>
-            <div class="footer-bottom">
-                <p data-translate="footer.copyright">&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
+            <div class="footer-section">
+              <h4>Проекты</h4>
+              <a href="projects.html">Все проекты</a>
+              <a href="#" class="footer-sub">KazSmartChain</a>
+              <a href="#" class="footer-sub">eDiploma</a>
+              <a href="#" class="footer-sub">ApartChain</a>
+              <a href="#" class="footer-sub">DAO</a>
             </div>
+            <div class="footer-section">
+              <h4>Образование</h4>
+              <a href="education.html">Все программы</a>
+              <a href="#" class="footer-sub">Курсы</a>
+              <a href="#" class="footer-sub">Мастер-классы</a>
+              <a href="#" class="footer-sub">Элективный курс НУ</a>
+              <a href="#" class="footer-sub">TechOrda</a>
+            </div>
+            <div class="footer-section">
+              <h4>Контакты</h4>
+              <a href="contact.html">Связаться с нами</a>
+              <div class="footer-social">
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Telegram</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev
+          University.
+        </p>
+      </div>
     </footer>
 
     <script src="../script.js"></script>
-</body>
+  </body>
 </html>

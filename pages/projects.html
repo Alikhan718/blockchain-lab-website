@@ -16,22 +16,49 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <div class="logo-icon">B</div>
-                <span class="logo-text">Blockchain Lab</span>
+                <a href="../index.html">
+                    <img src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo" class="logo-image">
+                </a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="../index.html" class="nav-link" data-translate="nav.home">Главная</a>
-                <a href="about.html" class="nav-link" data-translate="nav.about">О лаборатории</a>
+                <a href="about.html" class="nav-link" data-translate="nav.about">О нас</a>
                 <a href="research.html" class="nav-link" data-translate="nav.research">Исследования</a>
-                <a href="education.html" class="nav-link" data-translate="nav.education">Образование</a>
-                <a href="projects.html" class="nav-link active" data-translate="nav.projects">Проекты</a>
-                <a href="team.html" class="nav-link" data-translate="nav.team">Команда</a>
+                <div class="nav-dropdown">
+                    <a href="projects.html" class="nav-link dropdown-toggle active" data-translate="nav.projects">Проекты</a>
+                    <div class="dropdown-menu projects-menu">
+                        <div class="dropdown-list">
+                            <a href="#" class="dropdown-item" data-translate="projects.kazsmartchain"><span class="dropdown-icon"><img src="../assets/images/icons/kazsmartchain-icon.svg" alt="KazSmartChain Icon"></span>KazSmartChain</a>
+                            <a href="https://app.ediploma.kz/" class="dropdown-item" data-translate="projects.ediploma"><span class="dropdown-icon"><img src="../assets/images/icons/ediploma-icon.svg" alt="eDiploma Icon"></span>eDiploma</a>
+                            <a href="https://apartchain.org/" class="dropdown-item" data-translate="projects.apartchain"><span class="dropdown-icon"><img src="../assets/images/icons/apartchain-icon.svg" alt="ApartChain Icon"></span>ApartChain</a>
+                            <a href="#" class="dropdown-item" data-translate="projects.dao"><span class="dropdown-icon"><img src="../assets/images/icons/dao-icon.svg" alt="DAO Icon"></span>DAO</a>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="../assets/images/bg2.png" alt="Project Preview" style="border-radius:12px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="education.html" class="nav-link dropdown-toggle" data-translate="nav.education">Образование</a>
+                    <div class="dropdown-menu education-menu">
+                        <div class="dropdown-list">
+                            <a href="#" class="dropdown-item" data-translate="education.courses">Курсы</a>
+                            <a href="#" class="dropdown-item" data-translate="education.workshops">Мастер-классы</a>
+                            <a href="#" class="dropdown-item" data-translate="education.elective">Элективный курс НУ</a>
+                            <a href="#" class="dropdown-item" data-translate="education.techorda">TechOrda</a>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="../assets/images/edu.png" alt="Education Preview" style="border-radius:12px;">
+                        </div>
+                    </div>
+                </div>
                 <a href="news.html" class="nav-link" data-translate="nav.news">Новости</a>
                 <a href="contact.html" class="nav-link" data-translate="nav.contact">Контакты</a>
                 <div class="language-switcher">
                     <button class="lang-btn active" data-lang="ru">RU</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                    </div>
                 </div>
             </div>
             <div class="hamburger" id="hamburger">
@@ -56,7 +83,7 @@
             <div class="projects-grid">
                 <div class="project-card featured">
                     <div class="project-image">
-                        <div class="project-icon">🎓</div>
+                        <div class="project-icon"><img src="../assets/images/icons/ediploma-icon.svg" alt="eDiploma"></div>
                     </div>
                     <div class="project-content">
                         <h3 data-translate="projects.jasaim">Jasaim Blockchain</h3>
@@ -70,7 +97,7 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-icon">🏗️</div>
+                        <div class="project-icon"><img src="../assets/images/icons/kazsmartchain-icon.svg" alt="KazSmartChain"></div>
                     </div>
                     <div class="project-content">
                         <h3 data-translate="projects.kazsmartchain">KazSmartChain</h3>
@@ -84,7 +111,7 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-icon">🏛️</div>
+                        <div class="project-icon"><img src="../assets/images/icons/dao-icon.svg" alt="DAO"></div>
                     </div>
                     <div class="project-content">
                         <h3 data-translate="projects.dao">DAO & Impact Fund</h3>
@@ -103,28 +130,49 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">B</div>
-                    <span class="logo-text">Blockchain Lab</span>
-                </div>
-                <div class="footer-links">
-                    <a href="../index.html" data-translate="nav.home">Главная</a>
-                    <a href="about.html" data-translate="nav.about">О лаборатории</a>
-                    <a href="research.html" data-translate="nav.research">Исследования</a>
-                    <a href="education.html" data-translate="nav.education">Образование</a>
-                    <a href="projects.html" data-translate="nav.projects">Проекты</a>
-                    <a href="contact.html" data-translate="nav.contact">Контакты</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Telegram</a>
+            <div class="footer-main">
+      <div class="footer-logo-col">
+        <a href="../index.html">
+          <img class="logo-image" src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo">
+        </a>
+      </div>
+                <div class="footer-links-col">
+                    <div class="footer-section">
+                        <h4>О нас</h4>
+                        <a href="about.html">О лаборатории</a>
+                        <a href="research.html">Исследования</a>
+                        <a href="news.html">Новости</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Проекты</h4>
+                        <a href="projects.html">Все проекты</a>
+                        <a href="#" class="footer-sub">KazSmartChain</a>
+                        <a href="#" class="footer-sub">eDiploma</a>
+                        <a href="#" class="footer-sub">ApartChain</a>
+                        <a href="#" class="footer-sub">DAO</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Образование</h4>
+                        <a href="education.html">Все программы</a>
+                        <a href="#" class="footer-sub">Курсы</a>
+                        <a href="#" class="footer-sub">Мастер-классы</a>
+                        <a href="#" class="footer-sub">Элективный курс НУ</a>
+                        <a href="#" class="footer-sub">TechOrda</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Контакты</h4>
+                        <a href="contact.html">Связаться с нами</a>
+                        <div class="footer-social">
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Telegram</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p data-translate="footer.copyright">&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
         </div>
     </footer>
 

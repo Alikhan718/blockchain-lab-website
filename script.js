@@ -37,7 +37,7 @@ const translations = {
     ru: {
         // Navigation
         'nav.home': 'Главная',
-        'nav.about': 'О лаборатории',
+        'nav.about': 'О нас',
         'nav.research': 'Исследования',
         'nav.education': 'Образование',
         'nav.projects': 'Проекты',
@@ -62,14 +62,14 @@ const translations = {
         'about.problem.text': 'Отсутствие безопасной, децентрализованной среды для хранения государственных данных и проведения исследований в области блокчейн-технологий.',
         'about.solution': 'Решение',
         'about.solution.text': 'Создание комплексной экосистемы, объединяющей исследования, образование и коммерциализацию блокчейн-технологий.',
-        'about.stats.investment': 'тенге инвестиций',
+        'about.stats.investment': 'млн. тенге инвестиций',
         'about.stats.graduates': 'выпускников в год',
-        'about.stats.directions': 'основных направления',
+        'about.stats.directions': 'пилотных проектов',
         'about.partners': 'Наши партнеры',
         
         // Research Section
         'research.title': 'Исследования и R&D',
-        'research.subtitle': 'Разработка KazSmartChain и передовые исследования',
+        'research.subtitle': 'Разработка и передовые исследования',
         'research.kazsmartchain': 'KazSmartChain',
         'research.kazsmartchain.text': 'Разработка приватного блокчейна для государственных нужд с фокусом на безопасность и масштабируемость.',
         'research.smartcontracts': 'Смарт-контракты',
@@ -159,7 +159,7 @@ const translations = {
     
     en: {
         // Navigation
-        'nav.about': 'About Lab',
+        'nav.about': 'About Us',
         'nav.research': 'Research',
         'nav.education': 'Education',
         'nav.projects': 'Projects',
@@ -184,14 +184,14 @@ const translations = {
         'about.problem.text': 'Lack of secure, decentralized environment for storing government data and conducting blockchain technology research.',
         'about.solution': 'Solution',
         'about.solution.text': 'Creating a comprehensive ecosystem that combines research, education and commercialization of blockchain technologies.',
-        'about.stats.investment': 'tenge investment',
+        'about.stats.investment': 'million tenge investment',
         'about.stats.graduates': 'graduates per year',
-        'about.stats.directions': 'main directions',
+        'about.stats.directions': 'pilot projects',
         'about.partners': 'Our Partners',
         
         // Research Section
         'research.title': 'Research & R&D',
-        'research.subtitle': 'KazSmartChain development and cutting-edge research',
+        'research.subtitle': 'Development and cutting-edge research',
         'research.kazsmartchain': 'KazSmartChain',
         'research.kazsmartchain.text': 'Development of private blockchain for government needs with focus on security and scalability.',
         'research.smartcontracts': 'Smart Contracts',
@@ -276,13 +276,29 @@ const translations = {
         'contact.send': 'Send',
         
         // Footer
-        'footer.copyright': '© 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.'
+        'footer.copyright': '© 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.',
+        
+        // Education Gallery
+        'education.gallery.title': 'Education Gallery',
+        'education.gallery.subtitle': 'Moments from the educational process',
+        'education.gallery.item1.title': 'Professional Courses',
+        'education.gallery.item1.desc': 'B2B training in blockchain and AI',
+        'education.gallery.item2.title': 'Master Classes',
+        'education.gallery.item2.desc': 'Practical sessions from experts',
+        'education.gallery.item3.title': 'NU Elective Course',
+        'education.gallery.item3.desc': 'Joint development with SEDS',
+        'education.gallery.item4.title': 'TechOrda',
+        'education.gallery.item4.desc': 'IT specialists development program',
+        'education.gallery.item5.title': 'Students',
+        'education.gallery.item5.desc': 'Active participation in learning',
+        'education.gallery.item6.title': 'Certificates',
+        'education.gallery.item6.desc': 'Official learning documents'
     },
     
     kz: {
         // Navigation
         'nav.home': 'Басты бет',
-        'nav.about': 'Зертхана туралы',
+        'nav.about': 'Біз туралы',
         'nav.research': 'Зерттеулер',
         'nav.education': 'Білім беру',
         'nav.projects': 'Жобалар',
@@ -307,14 +323,14 @@ const translations = {
         'about.problem.text': 'Мемлекеттік мәліметтерді сақтау және блокчейн-технологиялары саласында зерттеулер жүргізу үшін қауіпсіз, децентрализацияланған ортаның болмауы.',
         'about.solution': 'Шешім',
         'about.solution.text': 'Блокчейн-технологияларының зерттеулерін, білім беруді және коммерцияландыруды біріктіретін кешенді экожүйені құру.',
-        'about.stats.investment': 'теңге инвестиция',
+        'about.stats.investment': 'млн. тенге инвестиция',
         'about.stats.graduates': 'жылына түлек',
-        'about.stats.directions': 'негізгі бағыт',
+        'about.stats.directions': 'пилот проекттер',
         'about.partners': 'Біздің серіктестер',
         
         // Research Section
         'research.title': 'Зерттеулер және R&D',
-        'research.subtitle': 'KazSmartChain дамыту және алдыңғы қатарлы зерттеулер',
+        'research.subtitle': 'Дамыту және алдыңғы қатарлы зерттеулер',
         'research.kazsmartchain': 'KazSmartChain',
         'research.kazsmartchain.text': 'Мемлекеттік қажеттіліктер үшін қауіпсіздік пен масштабталуға назар аудара отырып, жеке блокчейн дамыту.',
         'research.smartcontracts': 'Смарт-келісімшарттар',
@@ -399,7 +415,23 @@ const translations = {
         'contact.send': 'Жіберу',
         
         // Footer
-        'footer.copyright': '© 2025 Blockchain & Fintech Lab. Nazarbayev University қолдауымен.'
+        'footer.copyright': '© 2025 Blockchain & Fintech Lab. Nazarbayev University қолдауымен.',
+        
+        // Education Gallery
+        'education.gallery.title': 'Білім беру галереясы',
+        'education.gallery.subtitle': 'Білім беру процесінен сәттер',
+        'education.gallery.item1.title': 'Кәсіби курстар',
+        'education.gallery.item1.desc': 'Блокчейн және ИИ бойынша B2B оқыту',
+        'education.gallery.item2.title': 'Мастер-класстар',
+        'education.gallery.item2.desc': 'Сарапшылардан практикалық сабақтар',
+        'education.gallery.item3.title': 'НУ элективтік курсы',
+        'education.gallery.item3.desc': 'SEDS-пен бірлескен әзірлеу',
+        'education.gallery.item4.title': 'TechOrda',
+        'education.gallery.item4.desc': 'IT мамандарын дамыту бағдарламасы',
+        'education.gallery.item5.title': 'Студенттер',
+        'education.gallery.item5.desc': 'Оқытуда белсенді қатысу',
+        'education.gallery.item6.title': 'Сертификаттар',
+        'education.gallery.item6.desc': 'Оқыту туралы ресми құжаттар'
     }
 };
 
@@ -599,6 +631,34 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Dropdown menu logic
+const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+dropdownToggles.forEach(toggle => {
+    const menu = toggle.nextElementSibling;
+    if (!menu) return;
+    // Desktop: open on hover/focus
+    toggle.addEventListener('mouseenter', () => menu.style.opacity = '1');
+    toggle.addEventListener('mouseleave', () => menu.style.opacity = '');
+    menu.addEventListener('mouseenter', () => menu.style.opacity = '1');
+    menu.addEventListener('mouseleave', () => menu.style.opacity = '');
+    // Mobile: open on click (только если это button, а не ссылка)
+    if (toggle.tagName === 'BUTTON') {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = menu.classList.contains('open');
+            document.querySelectorAll('.dropdown-menu.open').forEach(m => m.classList.remove('open'));
+            if (!isOpen) menu.classList.add('open');
+            else menu.classList.remove('open');
+        });
+    }
+});
+// Close dropdowns on outside click
+window.addEventListener('click', (e) => {
+    if (![...dropdownToggles].some(t => t.contains(e.target)) && ![...document.querySelectorAll('.dropdown-menu')].some(m => m.contains(e.target))) {
+        document.querySelectorAll('.dropdown-menu.open').forEach(m => m.classList.remove('open'));
+    }
+});
+
 // Performance optimization: Lazy loading for images
 function lazyLoadImages() {
     const images = document.querySelectorAll('img[data-src]');
@@ -623,3 +683,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export functions for global use
 window.scrollToSection = scrollToSection;
+
+// Добавить переводы для новых пунктов меню
+Object.assign(translations.ru, {
+    'projects.kazsmartchain': 'KazSmartChain',
+    'projects.ediploma': 'eDiploma',
+    'projects.apartchain': 'ApartChain',
+    'projects.dao': 'DAO',
+    'education.courses': 'Курсы',
+    'education.workshops': 'Мастер-классы',
+    'education.elective': 'Элективный курс НУ',
+    'education.techorda': 'TechOrda',
+});
+Object.assign(translations.en, {
+    'projects.kazsmartchain': 'KazSmartChain',
+    'projects.ediploma': 'eDiploma',
+    'projects.apartchain': 'ApartChain',
+    'projects.dao': 'DAO',
+    'education.courses': 'Courses',
+    'education.workshops': 'Workshops',
+    'education.elective': 'NU Elective',
+    'education.techorda': 'TechOrda',
+});
+Object.assign(translations.kz, {
+    'projects.kazsmartchain': 'KazSmartChain',
+    'projects.ediploma': 'eDiploma',
+    'projects.apartchain': 'ApartChain',
+    'projects.dao': 'DAO',
+    'education.courses': 'Курстар',
+    'education.workshops': 'Мастер-кластар',
+    'education.elective': 'NU элективі',
+    'education.techorda': 'TechOrda',
+});
+
+// Partners Marquee seamless loop
+function duplicateMarqueeTrack() {
+    const track = document.querySelector('.marquee-track');
+    if (track && !track.classList.contains('marquee-duplicated')) {
+        track.innerHTML += track.innerHTML;
+        track.classList.add('marquee-duplicated');
+    }
+}
+document.addEventListener('DOMContentLoaded', duplicateMarqueeTrack);
+
+// Carousel functionality
+let currentSlideIndex = 0;
+const totalSlides = 4;
+
+function initializeCarousel() {
+    const carousel = document.querySelector('.carousel-track');
+    if (!carousel) return;
+    
+    // Auto-rotate carousel every 5 seconds
+    setInterval(() => {
+        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+        updateCarousel();
+    }, 5000);
+}
+
+function changeSlide(direction) {
+    currentSlideIndex += direction;
+    if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+    if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+    updateCarousel();
+}
+
+function currentSlide(slideIndex) {
+    currentSlideIndex = slideIndex - 1;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const carousel = document.querySelector('.carousel-track');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (carousel) {
+        carousel.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    }
+    
+    if (dots) {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlideIndex);
+        });
+    }
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeCarousel);

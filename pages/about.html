@@ -16,22 +16,49 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <div class="logo-icon">B</div>
-                <span class="logo-text">Blockchain Lab</span>
+                <a href="../index.html">
+                    <img src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo" class="logo-image">
+                </a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="../index.html" class="nav-link" data-translate="nav.home">Главная</a>
-                <a href="about.html" class="nav-link active" data-translate="nav.about">О лаборатории</a>
+                <a href="about.html" class="nav-link active" data-translate="nav.about">О нас</a>
                 <a href="research.html" class="nav-link" data-translate="nav.research">Исследования</a>
-                <a href="education.html" class="nav-link" data-translate="nav.education">Образование</a>
-                <a href="projects.html" class="nav-link" data-translate="nav.projects">Проекты</a>
-                <a href="team.html" class="nav-link" data-translate="nav.team">Команда</a>
+                <div class="nav-dropdown">
+                    <a href="projects.html" class="nav-link dropdown-toggle" data-translate="nav.projects">Проекты</a>
+                    <div class="dropdown-menu projects-menu">
+                        <div class="dropdown-list">
+                            <a href="#" class="dropdown-item" data-translate="projects.kazsmartchain"><span class="dropdown-icon"><img src="../assets/images/icons/kazsmartchain-icon.svg" alt="KazSmartChain Icon"></span>KazSmartChain</a>
+                            <a href="https://app.ediploma.kz/" class="dropdown-item" data-translate="projects.ediploma"><span class="dropdown-icon"><img src="../assets/images/icons/ediploma-icon.svg" alt="eDiploma Icon"></span>eDiploma</a>
+                            <a href="https://apartchain.org/" class="dropdown-item" data-translate="projects.apartchain"><span class="dropdown-icon"><img src="../assets/images/icons/apartchain.webp" alt="ApartChain Icon"></span>ApartChain</a>
+                            <a href="#" class="dropdown-item" data-translate="projects.dao"><span class="dropdown-icon"><img src="../assets/images/icons/dao-icon.svg" alt="DAO Icon"></span>DAO</a>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="../assets/images/bg2.png" alt="Project Preview" style="border-radius:12px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="education.html" class="nav-link dropdown-toggle" data-translate="nav.education">Образование</a>
+                    <div class="dropdown-menu education-menu">
+                        <div class="dropdown-list">
+                            <a href="#" class="dropdown-item" data-translate="education.courses">Курсы</a>
+                            <a href="#" class="dropdown-item" data-translate="education.workshops">Мастер-классы</a>
+                            <a href="#" class="dropdown-item" data-translate="education.elective">Элективный курс НУ</a>
+                            <a href="#" class="dropdown-item" data-translate="education.techorda">TechOrda</a>
+                        </div>
+                        <div class="dropdown-image">
+                            <img src="../assets/images/edu.png" alt="Education Preview" style="border-radius:12px;">
+                        </div>
+                    </div>
+                </div>
                 <a href="news.html" class="nav-link" data-translate="nav.news">Новости</a>
                 <a href="contact.html" class="nav-link" data-translate="nav.contact">Контакты</a>
                 <div class="language-switcher">
                     <button class="lang-btn active" data-lang="ru">RU</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                    </div>
                 </div>
             </div>
             <div class="hamburger" id="hamburger">
@@ -45,7 +72,7 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title" data-translate="about.title">О лаборатории</h1>
+            <h1 class="page-title" data-translate="about.title">О нас</h1>
             <p class="page-subtitle" data-translate="about.subtitle">Первая в Казахстане и СНГ университетская блокчейн-лаборатория</p>
         </div>
     </section>
@@ -60,7 +87,7 @@
                 </div>
                 <div class="mission-visual">
                     <div class="logo-placeholder">
-                        <img src="../assets/images/logo-large.png" alt="Blockchain Lab Logo" class="logo-image">
+                        <img src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo" class="logo-image">
                     </div>
                 </div>
             </div>
@@ -69,17 +96,89 @@
 
     <!-- Problem Solution Section -->
     <section class="problem-solution-section">
+        <video autoplay muted loop playsinline poster="../assets/videos/problem-solution.png" class="bg-video">
+            <source src="../assets/videos/problem-solution.mp4" type="video/mp4">
+            <source src="../assets/videos/problem-solution.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
         <div class="container">
             <div class="problem-solution-grid">
                 <div class="problem-card">
-                    <div class="card-icon">⚠️</div>
+                    <div class="card-icon"><img src="../assets/images/icons/problem.png" alt="Problem Icon"></div>
                     <h3 data-translate="about.problem">Проблема</h3>
                     <p data-translate="about.problem.text">Отсутствие безопасной, децентрализованной среды для хранения государственных данных и проведения исследований в области блокчейн-технологий.</p>
                 </div>
                 <div class="solution-card">
-                    <div class="card-icon">✅</div>
+                    <div class="card-icon"><img src="../assets/images/icons/solution.png" alt="Solution Icon"></div>
                     <h3 data-translate="about.solution">Решение</h3>
                     <p data-translate="about.solution.text">Создание комплексной экосистемы, объединяющей исследования, образование и коммерциализацию блокчейн-технологий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-marquee">
+        <div class="container">
+            <h2 class="section-title">Партнеры</h2>
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <img src="../assets/images/partners/nu-logo.png" alt="Nazarbayev University" class="partner-logo-marquee">
+                    <img src="../assets/images/partners/abc-logo.png" alt="Astana Business Campus" class="partner-logo-marquee">
+                    <img src="../assets/images/partners/fund-logo.png" alt="Фонд социального развития" class="partner-logo-marquee">
+                    <img src="../assets/images/partners/jasaim-logo.png" alt="JASAIM" class="partner-logo-marquee">
+                    <img src="../assets/images/partners/ah-logo.png" alt="Astana Hub" class="partner-logo-marquee">
+                    <img src="../assets/images/partners/hkstp-logo.png" alt="HKSTP" class="partner-logo-marquee">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Carousel Section -->
+    <section class="photo-carousel-section">
+        <div class="container">
+            <h2 class="section-title">Наша лаборатория</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="../assets/images/gallery/server3.png" alt="Laboratory Interior" class="carousel-image">
+                        <div class="carousel-overlay">
+                            <h3>Современное оборудование</h3>
+                            <p>Высокопроизводительный сервер для блокчейн-исследований</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/images/gallery/seds.png" alt="Research Space" class="carousel-image">
+                        <div class="carousel-overlay">
+                            <h3>School of Engineering and Digital Sciences</h3>
+                            <p>Пространство для совместной научной работы и проведения исследований</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/images/gallery/senate-hall.jpg" alt="Meeting Room" class="carousel-image">
+                        <div class="carousel-overlay">
+                            <h3>Senate Hall</h3>
+                            <p>Место для презентаций и проведения мастер-классов</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/images/gallery/study.png" alt="Student Area" class="carousel-image">
+                        <div class="carousel-overlay">
+                            <h3>Студенческая зона</h3>
+                            <p>Пространство для обучения и практики</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="changeSlide(-1)">‹</button>
+                    <button class="carousel-btn next" onclick="changeSlide(1)">›</button>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
                 </div>
             </div>
         </div>
@@ -88,60 +187,29 @@
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
-            <h2 class="section-title" data-translate="about.achievements">Наши достижения</h2>
+            <h2 class="section-title">Задачи на 2026 год</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">30.8M</div>
-                    <div class="stat-label" data-translate="about.stats.investment">тенге инвестиций</div>
+                    <div class="stat-number">14+</div>
+                    <div class="stat-label" data-translate="about.stats.investment">млн. тенге инвестиций</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">500+</div>
                     <div class="stat-label" data-translate="about.stats.graduates">выпускников в год</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label" data-translate="about.stats.directions">основных направления</div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label" data-translate="about.stats.directions">пилотных проектов</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label" data-translate="about.stats.publications">научных публикаций</div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label" data-translate="about.stats.publications">научные публикации</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h2 class="section-title" data-translate="about.partners">Наши партнеры</h2>
-            <div class="partners-grid">
-                <div class="partner-item">
-                    <div class="partner-logo">
-                        <img src="../assets/images/partners/nu-logo.png" alt="Nazarbayev University" class="partner-image">
-                    </div>
-                    <h3>Nazarbayev University</h3>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-logo">
-                        <img src="../assets/images/partners/abc-logo.png" alt="Astana Business Campus" class="partner-image">
-                    </div>
-                    <h3>Astana Business Campus</h3>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-logo">
-                        <img src="../assets/images/partners/fsr-logo.png" alt="Фонд социального развития" class="partner-image">
-                    </div>
-                    <h3>Фонд социального развития</h3>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-logo">
-                        <img src="../assets/images/partners/jasaim-logo.png" alt="JASAIM" class="partner-image">
-                    </div>
-                    <h3>JASAIM</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Video Section -->
     <section class="video-section">
@@ -149,7 +217,7 @@
             <h2 class="section-title" data-translate="about.video">Видео о лаборатории</h2>
             <div class="video-container">
                 <div class="video-placeholder">
-                    <video controls poster="../assets/images/video-poster.jpg" class="lab-video">
+                    <video controls poster="../assets/images/bg1.png" class="lab-video">
                         <source src="../assets/videos/lab-intro.mp4" type="video/mp4">
                         <source src="../assets/videos/lab-intro.webm" type="video/webm">
                         Ваш браузер не поддерживает видео.
@@ -162,28 +230,49 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">B</div>
-                    <span class="logo-text">Blockchain Lab</span>
-                </div>
-                <div class="footer-links">
-                    <a href="../index.html" data-translate="nav.home">Главная</a>
-                    <a href="about.html" data-translate="nav.about">О лаборатории</a>
-                    <a href="research.html" data-translate="nav.research">Исследования</a>
-                    <a href="education.html" data-translate="nav.education">Образование</a>
-                    <a href="projects.html" data-translate="nav.projects">Проекты</a>
-                    <a href="contact.html" data-translate="nav.contact">Контакты</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Telegram</a>
+            <div class="footer-main">
+      <div class="footer-logo-col">
+        <a href="../index.html">
+          <img class="logo-image" src="../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab Logo">
+        </a>
+      </div>
+                <div class="footer-links-col">
+                    <div class="footer-section">
+                        <h4>О нас</h4>
+                        <a href="about.html">О лаборатории</a>
+                        <a href="research.html">Исследования</a>
+                        <a href="news.html">Новости</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Проекты</h4>
+                        <a href="projects.html">Все проекты</a>
+                        <a href="#" class="footer-sub">KazSmartChain</a>
+                        <a href="#" class="footer-sub">eDiploma</a>
+                        <a href="#" class="footer-sub">ApartChain</a>
+                        <a href="#" class="footer-sub">DAO</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Образование</h4>
+                        <a href="education.html">Все программы</a>
+                        <a href="#" class="footer-sub">Курсы</a>
+                        <a href="#" class="footer-sub">Мастер-классы</a>
+                        <a href="#" class="footer-sub">Элективный курс НУ</a>
+                        <a href="#" class="footer-sub">TechOrda</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Контакты</h4>
+                        <a href="contact.html">Связаться с нами</a>
+                        <div class="footer-social">
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Telegram</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p data-translate="footer.copyright">&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Blockchain & Fintech Lab. Powered by Nazarbayev University.</p>
         </div>
     </footer>
 
