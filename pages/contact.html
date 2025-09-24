@@ -78,16 +78,16 @@
     </section>
 
     <!-- Contact Content -->
-    <section class="contact-content">
+    <section id="contact" class="contact">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon"><img src="../assets/images/icons/location-icon.svg" alt="Location"></div>
                         <div>
                             <h4 data-translate="contact.address">Адрес</h4>
                             <p>
-                                г. Астана, Назарбаев Университет, пр. Кабанбай Батыра 52,
+                                г. Астана, Назарбаев Университет, пр. Кабанбай Батыра 53,
                                 010000<br />1 блок, 2 этаж
                             </p>
                         </div>
@@ -106,34 +106,38 @@
                             <p>+7 (701) 520-27-20</p>
                         </div>
                     </div>
+
+                    <div class="contact-map">
+                        <iframe class="map-frame" title="Карта офиса Blockchain Lab"
+                            src="https://www.google.com/maps?q=Nazarbayev%20University%2C%20Astana&hl=ru&z=15&output=embed"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
-                <div class="contact-photo">
-                    <img src="../assets/images/gallery/study.png" alt="Blockchain Lab Office" class="office-image">
+
+                <div class="contact-form">
+                    <h3 data-translate="contact.form">Обратная связь</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required data-translate="contact.name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required data-translate="contact.email.placeholder">
+                        </div>
+                        <div class="form-group">
+                            <select required data-translate="contact.type">
+                                <option value="">Тип обращения</option>
+                                <option value="partnership" data-translate="contact.partnership">Партнерство</option>
+                                <option value="education" data-translate="contact.education">Образование</option>
+                                <option value="research" data-translate="contact.research">Исследования</option>
+                                <option value="other" data-translate="contact.other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Сообщение" rows="5" required data-translate="contact.message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-translate="contact.send">Отправить</button>
+                    </form>
                 </div>
-            </div>
-            <div class="contact-form">
-                <h3 data-translate="contact.form">Обратная связь</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="text" placeholder="Ваше имя" required data-translate="contact.name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email" required data-translate="contact.email.placeholder">
-                    </div>
-                    <div class="form-group">
-                        <select required data-translate="contact.type">
-                            <option value="">Тип обращения</option>
-                            <option value="partnership" data-translate="contact.partnership">Партнерство</option>
-                            <option value="education" data-translate="contact.education">Образование</option>
-                            <option value="research" data-translate="contact.research">Исследования</option>
-                            <option value="other" data-translate="contact.other">Другое</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Сообщение" rows="5" required data-translate="contact.message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" data-translate="contact.send">Отправить</button>
-                </form>
             </div>
         </div>
     </section>

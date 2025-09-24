@@ -49,9 +49,9 @@ const translations = {
         'hero.title': 'Blockchain & Fintech Lab',
         'hero.subtitle': 'Powered by Nazarbayev University',
         'hero.description': 'Создаем будущее цифрового Казахстана. Исследования. Образование. Внедрение.',
-        'hero.btn1': 'Узнать о проектах',
-        'hero.btn2': 'Партнерство',
-        'hero.btn3': 'Записаться на курс',
+        'hero.btn1': 'Проекты',
+        'hero.btn2': 'Курсы',
+        'hero.btn3': 'РЕГИСТРАЦИЯ НА ОТКРЫТИЕ',
         
         // About Section
         'about.title': 'О лаборатории',
@@ -171,9 +171,9 @@ const translations = {
         'hero.title': 'Blockchain & Fintech Lab',
         'hero.subtitle': 'Powered by Nazarbayev University',
         'hero.description': 'Building the future of digital Kazakhstan. Research. Education. Implementation.',
-        'hero.btn1': 'Learn about projects',
-        'hero.btn2': 'Partnership',
-        'hero.btn3': 'Enroll in course',
+        'hero.btn1': 'Projects',
+        'hero.btn2': 'Courses',
+        'hero.btn3': 'OPENING RSVP',
         
         // About Section
         'about.title': 'About the Laboratory',
@@ -310,9 +310,9 @@ const translations = {
         'hero.title': 'Blockchain & Fintech Lab',
         'hero.subtitle': 'Nazarbayev University қолдауымен',
         'hero.description': 'Қазақстанның цифрлық болашағын құрамыз. Зерттеулер. Білім беру. Енгізу.',
-        'hero.btn1': 'Жобалар туралы білу',
-        'hero.btn2': 'Серіктестік',
-        'hero.btn3': 'Курсқа жазылу',
+        'hero.btn1': 'Жобалар',
+        'hero.btn2': 'Курстар',
+        'hero.btn3': 'Ашылуына тіркелу',
         
         // About Section
         'about.title': 'Зертхана туралы',

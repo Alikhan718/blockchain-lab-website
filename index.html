@@ -90,7 +90,10 @@
                       alt="ApartChain Icon" /></span
                   >ApartChain</a
                 >
-                <a href="pages/projects.html" class="dropdown-item" data-translate="projects.dao"
+                <a
+                  href="pages/projects.html"
+                  class="dropdown-item"
+                  data-translate="projects.dao"
                   ><span class="dropdown-icon"
                     ><img
                       src="assets/images/icons/dao-icon.svg"
@@ -205,22 +208,20 @@
               onclick="scrollToSection('projects')"
               data-translate="hero.btn1"
             >
-              Узнать о проектах
+              Проекты
             </button>
             <button
               class="btn btn-secondary"
-              onclick="scrollToSection('contact')"
+              onclick="scrollToSection('education')"
               data-translate="hero.btn2"
             >
-              Партнерство
+              Курсы
             </button>
-            <button
-              class="btn btn-outline"
-              onclick="scrollToSection('education')"
-              data-translate="hero.btn3"
-            >
-              Записаться на курс
-            </button>
+            <a href="https://luma.com/h0bvnh16" target="_blank">
+              <button class="btn btn-outline" data-translate="hero.btn3">
+                РЕГИСТРАЦИЯ НА ОТКРЫТИЕ
+              </button>
+            </a>
           </div>
         </div>
         <div class="hero-visual">
@@ -519,137 +520,77 @@
       </div>
     </section>
 
-    <!-- Research Plans -->
-    <section class="research-plans">
-      <div class="container">
-        <h2 class="section-title">Планы исследований</h2>
-        <div class="plans-grid">
-          <div class="plan-card">
-            <h3>2025-2026</h3>
-            <h4>Запуск KazSmartChain</h4>
-            <p>
-              Полномасштабное развертывание приватного блокчейна для
-              государственных нужд Казахстана с интеграцией с существующими
-              системами.
-            </p>
-            <ul class="plan-features">
-              <li>Тестирование в пилотных регионах</li>
-              <li>Интеграция с госуслугами</li>
-              <li>Обучение специалистов</li>
-            </ul>
-          </div>
-          <div class="plan-card">
-            <h3>2026-2027</h3>
-            <h4>Международное сотрудничество</h4>
-            <p>
-              Расширение исследований на международном уровне с партнерами из
-              СНГ, Европы и Азии.
-            </p>
-            <ul class="plan-features">
-              <li>Совместные проекты с зарубежными университетами</li>
-              <li>Участие в международных конференциях</li>
-              <li>Обмен опытом и технологиями</li>
-            </ul>
-          </div>
-          <div class="plan-card">
-            <h3>2027-2028</h3>
-            <h4>Инновационные решения</h4>
-            <p>
-              Разработка прорывных технологий в области DeFi, NFT, метавселенной
-              и квантово-устойчивых блокчейнов.
-            </p>
-            <ul class="plan-features">
-              <li>Квантово-устойчивая криптография</li>
-              <li>Экосистема DeFi для Казахстана</li>
-              <li>Цифровые активы и NFT</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects-section">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Ключевые проекты</h2>
           <p class="section-subtitle">Пилотные проекты и коммерциализация</p>
         </div>
 
-        <div class="projects-grid">
-          <div class="project-card featured">
-            <div class="project-image">
-              <div class="project-icon">
-                <img
-                  src="assets/images/icons/ediploma-icon.svg"
-                  alt="eDiploma"
-                />
-              </div>
+        <div class="projects-list">
+          <div class="project-row project-kazsmartchain">
+            <div class="project-visual">
+              <img
+                src="assets/images/projects/kazsmartchain.png"
+                alt="KazSmartChain Preview"
+              />
             </div>
-            <div class="project-content">
-              <h3>eDiploma</h3>
-              <p>
-                Децентрализованная система верификации дипломов и академических
-                записей. Обеспечивает прозрачность и защиту от подделок.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Solidity</span>
-                <span class="tech-tag">IPFS</span>
-                <span class="tech-tag">Web3</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-icon">
-                <img
-                  src="assets/images/icons/kazsmartchain-icon.svg"
-                  alt="KazSmartChain"
-                />
-              </div>
-            </div>
-            <div class="project-content">
+            <div class="project-info">
               <h3>KazSmartChain</h3>
               <p>
-                Национальная приватная блокчейн-инфраструктура для
-                государственных органов и образовательных учреждений.
+                Государственная блокчейн-платформа для цифровой трансформации
+                Казахстана. Обеспечивает суверенность, безопасность и
+                масштабируемость, поддерживает токенизацию, цифровую
+                идентичность и прозрачный обмен данными для государственных и
+                частных сервисов.
               </p>
-              <div class="project-tech">
-                <span class="tech-tag">Consensus</span>
-                <span class="tech-tag">Privacy</span>
-                <span class="tech-tag">Scalability</span>
+              <ul class="project-features">
+                <li>Токенизация активов и цифровая идентичность</li>
+                <li>
+                  Прозрачность для госуслуг и бизнеса, снижение мошенничества
+                </li>
+                <li>Технологическая независимость и совместимость</li>
+              </ul>
+              <div class="project-actions">
+                <a href="pages/kazsmartchain.html" class="btn btn-primary"
+                  >О проекте</a
+                >
               </div>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-icon">
-                <img src="assets/images/icons/dao-icon.svg" alt="DAO" />
+          <!-- Wide colorful banner button to all projects -->
+          <div class="projects-cta">
+            <a
+              href="pages/projects.html"
+              class="projects-cta-banner"
+              aria-label="Все проекты"
+            >
+              <div class="cta-images">
+                <span class="img i1" aria-hidden="true"></span>
+                <span class="img i2" aria-hidden="true"></span>
+                <span class="img i3" aria-hidden="true"></span>
+                <span class="img i4" aria-hidden="true"></span>
               </div>
-            </div>
-            <div class="project-content">
-              <h3>DAO & Impact Fund</h3>
-              <p>
-                Децентрализованная модель управления и инвестиций для поддержки
-                инновационных проектов в сфере блокчейн.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Governance</span>
-                <span class="tech-tag">Voting</span>
-                <span class="tech-tag">Treasury</span>
+              <div class="cta-overlay" aria-hidden="true"></div>
+              <div class="cta-content">
+                <h3>Все проекты лаборатории</h3>
+                <p>Ознакомьтесь с нашими инициативами</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Education Content -->
-    <section class="education-content">
+    <section id="education" class="education-content">
       <div class="container">
-        <h2 class="section-title">Образование</h2>
+        <div class="section-header">
+          <h2 class="section-title">Образование</h2>
+          <p class="section-subtitle">Образовательные программы и курсы</p>
+        </div>
         <div class="education-types">
           <div class="education-card">
             <div class="education-image">
@@ -799,35 +740,35 @@
           </p>
         </div>
 
-        <div class="news-grid">
-          <div class="news-card featured">
-            <div class="news-date">1 Октября 2025</div>
-            <h3>Открытие Blockchain & Fintech Lab</h3>
-            <p>
-              Приглашаем студентов принять участие на открытии Blockchain &
-              Fintech Lab на территории Назарбаев Университета
-            </p>
-            <a href="#" class="news-link">Подробнее →</a>
-          </div>
-
-          <div class="news-card">
-            <div class="news-date">10 Октября 2025</div>
-            <h3>Проведение первого хакатона Blockchain Lab</h3>
-            <p>
-              Приглашаем студентов принять участие в хакатоне по разработке
-              блокчейн-решений для образования.
-            </p>
-            <a href="#" class="news-link">Читать →</a>
-          </div>
-
-          <div class="news-card">
-            <div class="news-date">5 Октября 2025</div>
-            <h3>Запуск первого студенческого курса</h3>
-            <p>
-              Приглашаем студентов принять участие в первом студенческом курсе
-              по блокчейн-технологиям.
-            </p>
-            <a href="#" class="news-link">Подробнее →</a>
+        <div class="opening-news" style="margin-bottom: 0">
+          <div class="opening-card">
+            <div class="opening-media">
+              <img
+                src="assets/images/news/opening.png"
+                alt="Открытие лаборатории"
+              />
+              <div class="opening-media-overlay" aria-hidden="true"></div>
+              <div class="opening-badge">ОТКРЫТИЕ</div>
+            </div>
+            <div class="opening-info">
+              <h3 class="opening-title">Blockchain & Fintech Lab — открытие</h3>
+              <p class="opening-meta">
+                1 октября 2025 • Назарбаев Университет, Астана
+              </p>
+              <p class="opening-text">
+                Торжественный запуск лаборатории, презентация KazSmartChain,
+                демо суперноды, подписание MOU и нетворкинг.
+              </p>
+              <div class="opening-cta">
+                <a
+                  class="btn btn-primary"
+                  href="https://luma.com/h0bvnh16"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Регистрация</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -948,8 +889,16 @@
               <h4>Контакты</h4>
               <a href="pages/contact.html">Связаться с нами</a>
               <div class="footer-social">
-                <a href="https://www.instagram.com/blockchain.fintech.lab/" class="social-link">Instagram</a>
-                <a href="https://www.linkedin.com/company/jasaim" class="social-link">LinkedIn</a>
+                <a
+                  href="https://www.instagram.com/blockchain.fintech.lab/"
+                  class="social-link"
+                  >Instagram</a
+                >
+                <a
+                  href="https://www.linkedin.com/company/jasaim"
+                  class="social-link"
+                  >LinkedIn</a
+                >
                 <a href="https://t.me/bflabnu" class="social-link">Telegram</a>
               </div>
             </div>
