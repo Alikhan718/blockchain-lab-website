@@ -529,7 +529,7 @@ section {
 
 /* Page Header */
 .page-header {
-    padding: 120px 0 80px;
+    padding: 100px 0 100px;
     text-align: center;
 }
 
@@ -1472,6 +1472,7 @@ section {
 }
 
 .footer-social .social-link {
+    font-family: var(--font-heading);
     color: var(--accent-lime);
     font-size: 1.1em;
     text-decoration: none;
@@ -2858,6 +2859,7 @@ body, .stat-card, .education-card, .project-card, .team-member, .news-card, .con
 }
 
 .project-info h3 {
+    font-family: var(--font-heading);
     color: var(--accent-lime);
     font-size: 2rem;
     font-weight: var(--font-weight-bold);
@@ -3393,6 +3395,7 @@ body, .stat-card, .education-card, .project-card, .team-member, .news-card, .con
 }
 
 .ksc-doc-actions h3 {
+    font-family: var(--font-heading);
     color: var(--accent-lime);
     margin-bottom: 8px;
 }
@@ -3448,7 +3451,7 @@ body, .stat-card, .education-card, .project-card, .team-member, .news-card, .con
 .opening-media img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); transition: transform 0.5s ease; }
 .opening-media-overlay { position: absolute; inset: 0; background: radial-gradient(circle at 20% 80%, rgba(210,255,30,0.18), transparent 60%); pointer-events: none; }
 .opening-badge { position: absolute; top: 12px; left: 12px; background: linear-gradient(135deg, #d2ff1e, #9f7bff); color: #0a0a0a; font-weight: 800; letter-spacing: 0.06em; padding: 6px 10px; border-radius: 10px; box-shadow: 0 0 18px #d2ff1e88; }
-.opening-info .opening-title { font-size: 2rem; color: var(--accent-lime); text-shadow: 0 0 18px #d2ff1e88; margin-bottom: 8px; }
+.opening-info .opening-title {font-family: var(--font-heading); font-size: 2rem; color: var(--accent-lime); text-shadow: 0 0 18px #d2ff1e88; margin-bottom: 8px; }
 .opening-info .opening-meta { color: var(--text-gray); margin-bottom: 8px; }
 .opening-info .opening-text { color: var(--text-light); margin-bottom: var(--spacing-md); }
 .opening-card:hover .opening-media img { transform: scale(1.06); }
