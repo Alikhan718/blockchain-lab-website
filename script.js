@@ -678,9 +678,24 @@ function initHeroCanvas() {
 
     const nodes = [];
     const cubes = [];
+    const shards = [];
+    const pulses = [];
     const COLORS = ['#d2ff1e', '#162c1b'];
-    const MAX_NODES = 42;
-    const MAX_CUBES = 28;
+    const MAX_NODES = canvas.clientWidth < 900 ? 28 : 42;
+    const MAX_CUBES = canvas.clientWidth < 900 ? 16 : 28;
+    const MAX_SHARDS = canvas.clientWidth < 900 ? 16 : 28;
+
+    // Parallax tracking for a subtle depth effect
+    let targetParallax = { x: 0, y: 0 };
+    let parallax = { x: 0, y: 0 };
+    window.addEventListener('mousemove', (e) => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        targetParallax.x = (e.clientX - cx) / cx; // -1..1
+        targetParallax.y = (e.clientY - cy) / cy;
+    }, { passive: true });
+
+    const lerp = (a, b, t) => a + (b - a) * t;
 
     function spawnNode() {
         const x = Math.random() * canvas.clientWidth;
@@ -706,6 +721,20 @@ function initHeroCanvas() {
 
     for (let i = 0; i < MAX_NODES; i++) spawnNode();
     for (let i = 0; i < MAX_CUBES; i++) spawnCube();
+    // shards
+    for (let i = 0; i < MAX_SHARDS; i++) {
+        const x = Math.random() * canvas.clientWidth;
+        const y = Math.random() * canvas.clientHeight;
+        const s = 6 + Math.random() * 16;
+        const a = Math.random() * Math.PI * 2;
+        const va = (Math.random() - 0.5) * 0.004;
+        const speed = 0.2 + Math.random() * 0.6;
+        const dir = Math.random() * Math.PI * 2;
+        const vx = Math.cos(dir) * speed;
+        const vy = Math.sin(dir) * speed;
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        shards.push({ x, y, s, a, va, vx, vy, color });
+    }
 
     function drawGlassLine(x1, y1, x2, y2, a) {
         // glassy neon line
@@ -751,6 +780,43 @@ function initHeroCanvas() {
         ctx.globalAlpha = 1;
     }
 
+    function drawShard(s) {
+        ctx.save();
+        ctx.translate(s.x, s.y);
+        ctx.rotate(s.a);
+        ctx.globalAlpha = 0.6;
+        ctx.strokeStyle = s.color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(-s.s, 0);
+        ctx.lineTo(0, -s.s * 0.6);
+        ctx.lineTo(s.s, 0);
+        ctx.lineTo(0, s.s * 0.6);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawPulse(p) {
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.fillStyle = 'rgba(210,255,30,0.85)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+
+    function emitPulse(ax, ay, bx, by) {
+        pulses.push({ ax, ay, bx, by, t: 0 });
+    }
+
+    setInterval(() => {
+        const a = nodes[Math.floor(Math.random() * nodes.length)];
+        const b = nodes[Math.floor(Math.random() * nodes.length)];
+        if (a && b) emitPulse(a.x, a.y, b.x, b.y);
+    }, 900);
+
     function shade(hex, amt) {
         // simple hex shade
         let col = hex.replace('#','');
@@ -766,6 +832,10 @@ function initHeroCanvas() {
     }
 
     function tick() {
+        // Smooth parallax
+        parallax.x = lerp(parallax.x, targetParallax.x, 0.05);
+        parallax.y = lerp(parallax.y, targetParallax.y, 0.05);
+
         ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
         // subtle background tint
@@ -782,7 +852,9 @@ function initHeroCanvas() {
             if (n.y > canvas.clientHeight + 40) n.y = -40;
         }
 
-        // draw links with glass glow
+        // draw links with glass glow (parallax offset)
+        const ox = parallax.x * 10;
+        const oy = parallax.y * 10;
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i + 1; j < nodes.length; j++) {
                 const a = nodes[i], b = nodes[j];
@@ -791,9 +863,19 @@ function initHeroCanvas() {
                 const maxDist = 140;
                 if (dist < maxDist) {
                     const alpha = (1 - dist / maxDist) * 0.35;
-                    drawGlassLine(a.x, a.y, b.x, b.y, alpha);
+                    drawGlassLine(a.x + ox, a.y + oy, b.x + ox, b.y + oy, alpha);
                 }
             }
+        }
+
+        // pulses moving along links
+        for (let k = pulses.length - 1; k >= 0; k--) {
+            const p = pulses[k];
+            p.t += 0.02;
+            if (p.t >= 1) { pulses.splice(k, 1); continue; }
+            p.x = lerp(p.ax, p.bx, p.t);
+            p.y = lerp(p.ay, p.by, p.t);
+            drawPulse(p);
         }
 
         // update and draw glass cubes
@@ -806,6 +888,17 @@ function initHeroCanvas() {
             if (c.y < -60) c.y = canvas.clientHeight + 60;
             if (c.y > canvas.clientHeight + 60) c.y = -60;
             drawGlassCube(c);
+        }
+
+        // shards
+        for (const s of shards) {
+            s.a += s.va;
+            s.x += s.vx + parallax.x * 0.6;
+            s.y += s.vy + parallax.y * 0.6;
+            const w = canvas.clientWidth, h = canvas.clientHeight;
+            if (s.x < -60) s.x = w + 60; if (s.x > w + 60) s.x = -60;
+            if (s.y < -60) s.y = h + 60; if (s.y > h + 60) s.y = -60;
+            drawShard(s);
         }
 
         requestAnimationFrame(tick);
