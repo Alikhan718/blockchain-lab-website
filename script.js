@@ -7,10 +7,24 @@ const navLinks = document.querySelectorAll('.nav-link');
 const langButtons = document.querySelectorAll('.lang-btn');
 
 // Mobile Navigation Toggle
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
+function updateNavHeightVar() {
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+    const h = nav.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--nav-height', h + 'px');
+}
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        updateNavHeightVar();
+    });
+}
+
+window.addEventListener('resize', updateNavHeightVar);
+document.addEventListener('DOMContentLoaded', updateNavHeightVar);
 
 // Close mobile menu when clicking on a link
 navLinks.forEach(link => {
@@ -57,7 +71,7 @@ const translations = {
         'about.title': 'О лаборатории',
         'about.subtitle': 'Первая в Казахстане и СНГ университетская блокчейн-лаборатория',
         'about.mission': 'Наша миссия',
-        'about.mission.text': 'Разработка KazSmartChain — национальной приватной блокчейн-инфраструктуры для повышения прозрачности, цифрового суверенитета и защиты данных госорганов и вузов.',
+        'about.mission.text': 'Стать катализатором цифровой трансформации Казахстана через создание центра превосходства в области блокчейн-технологий, который интегрирует передовые исследования, образование мирового уровня и практическое внедрение решений для государства и бизнеса.',
         'about.problem': 'Проблема',
         'about.problem.text': 'Отсутствие безопасной, децентрализованной среды для хранения государственных данных и проведения исследований в области блокчейн-технологий.',
         'about.solution': 'Решение',
@@ -142,7 +156,7 @@ const translations = {
         'contact.address.text': 'г. Астана, Назарбаев Университет<br>Blockchain & Fintech Lab',
         'contact.email': 'Email',
         'contact.phone': 'Телефон',
-        'contact.form': 'Обратная связь',
+        'contact.form': 'Свяжитесь с нами',
         'contact.name': 'Ваше имя',
         'contact.email.placeholder': 'Email',
         'contact.type': 'Тип обращения',
@@ -179,7 +193,7 @@ const translations = {
         'about.title': 'About the Laboratory',
         'about.subtitle': 'First university blockchain laboratory in Kazakhstan and CIS',
         'about.mission': 'Our Mission',
-        'about.mission.text': 'Development of KazSmartChain — national private blockchain infrastructure to enhance transparency, digital sovereignty and data protection for government agencies and universities.',
+        'about.mission.text': 'Become a catalyst for digital transformation of Kazakhstan through creating a center of excellence in blockchain technologies, which integrates cutting-edge research, world-class education and practical implementation of solutions for the government and business.',
         'about.problem': 'Problem',
         'about.problem.text': 'Lack of secure, decentralized environment for storing government data and conducting blockchain technology research.',
         'about.solution': 'Solution',
@@ -264,7 +278,7 @@ const translations = {
         'contact.address.text': 'Astana, Nazarbayev University<br>Blockchain & Fintech Lab',
         'contact.email': 'Email',
         'contact.phone': 'Phone',
-        'contact.form': 'Contact Form',
+        'contact.form': 'Contact Us',
         'contact.name': 'Your name',
         'contact.email.placeholder': 'Email',
         'contact.type': 'Inquiry type',
@@ -318,7 +332,7 @@ const translations = {
         'about.title': 'Зертхана туралы',
         'about.subtitle': 'Қазақстан мен ТМД-дағы алғашқы университет блокчейн-зертханасы',
         'about.mission': 'Біздің миссия',
-        'about.mission.text': 'KazSmartChain дамыту — мемлекеттік органдар мен университеттердің мәліметтерін қорғау, цифрлық егемендікті және мемлекеттік органдар мен университеттердің мәліметтерін қорғау үшін ұлттық жеке блокчейн-инфрақұрылымын дамыту.',
+        'about.mission.text': 'Қазақстанның цифрлық трансформациясын қолайластыру үшін блокчейн технологияларындағы ең жақсы орталықты құру, бұл өзекті зерттеулерді, ең жақсы білім беру және практикалық шешімдерді біріктіреді.',
         'about.problem': 'Мәселе',
         'about.problem.text': 'Мемлекеттік мәліметтерді сақтау және блокчейн-технологиялары саласында зерттеулер жүргізу үшін қауіпсіз, децентрализацияланған ортаның болмауы.',
         'about.solution': 'Шешім',
@@ -403,7 +417,7 @@ const translations = {
         'contact.address.text': 'Астана қ., Nazarbayev University<br>Blockchain & Fintech Lab',
         'contact.email': 'Email',
         'contact.phone': 'Телефон',
-        'contact.form': 'Кері байланыс',
+        'contact.form': 'Бізбен байланыс',
         'contact.name': 'Сіздің атыңыз',
         'contact.email.placeholder': 'Email',
         'contact.type': 'Сұрау түрі',
@@ -507,18 +521,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar scroll effect
-// Отключено: всегда темная шапка с glow
-// window.addEventListener('scroll', () => {
-//     const navbar = document.querySelector('.navbar');
-//     if (window.scrollY > 100) {
-//         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-//         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-//     } else {
-//         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-//         navbar.style.boxShadow = 'none';
-//     }
-// });
+// Navbar + Back-to-top scroll effect
+function applyScrollClasses() {
+    const threshold = 20;
+    if (window.scrollY > threshold) {
+        document.body.classList.add('scrolled');
+    } else {
+        document.body.classList.remove('scrolled');
+    }
+}
+
+window.addEventListener('scroll', applyScrollClasses, { passive: true });
+document.addEventListener('DOMContentLoaded', applyScrollClasses);
+
+// Back-to-top button creation (single, reused on all pages)
+document.addEventListener('DOMContentLoaded', () => {
+    if (!document.getElementById('backToTopBtn')) {
+        const btn = document.createElement('button');
+        btn.id = 'backToTopBtn';
+        btn.setAttribute('aria-label', 'Back to top');
+        btn.innerHTML = '↑';
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.body.appendChild(btn);
+    }
+});
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -631,19 +659,224 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounters();
 });
 
+// HERO: 3D-ish blocks animation on canvas + typewriter headline
+function initHeroCanvas() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    function resize() {
+        const { clientWidth, clientHeight } = canvas;
+        canvas.width = clientWidth * DPR;
+        canvas.height = clientHeight * DPR;
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    resize();
+
+    const nodes = [];
+    const cubes = [];
+    const COLORS = ['#d2ff1e', '#162c1b'];
+    const MAX_NODES = 42;
+    const MAX_CUBES = 28;
+
+    function spawnNode() {
+        const x = Math.random() * canvas.clientWidth;
+        const y = Math.random() * canvas.clientHeight;
+        const z = Math.random() * 1.0 + 0.4; // depth for parallax (0.4..1.4)
+        const vx = (Math.random() - 0.5) * 0.25;
+        const vy = (Math.random() - 0.5) * 0.25;
+        nodes.push({ x, y, z, vx, vy });
+    }
+
+    function spawnCube() {
+        const s = 8 + Math.random() * 20;
+        const x = Math.random() * canvas.clientWidth;
+        const y = Math.random() * canvas.clientHeight;
+        const z = Math.random() * 1.0 + 0.4;
+        const r = Math.random() * Math.PI * 2; // rotation
+        const vr = (Math.random() - 0.5) * 0.0025; // slow rotation
+        const vx = (Math.random() - 0.5) * 0.2;
+        const vy = (Math.random() - 0.5) * 0.2;
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        cubes.push({ x, y, z, s, r, vr, vx, vy, color });
+    }
+
+    for (let i = 0; i < MAX_NODES; i++) spawnNode();
+    for (let i = 0; i < MAX_CUBES; i++) spawnCube();
+
+    function drawGlassLine(x1, y1, x2, y2, a) {
+        // glassy neon line
+        const grad = ctx.createLinearGradient(x1, y1, x2, y2);
+        grad.addColorStop(0, 'rgba(210,255,30,' + a + ')');
+        grad.addColorStop(1, 'rgba(22,44,27,' + a + ')');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.25;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+    }
+
+    function drawGlassCube(c) {
+        // wireframe cube with slight glow
+        const s = c.s;
+        const r = c.r;
+        const cos = Math.cos(r), sin = Math.sin(r);
+        const depth = s * 0.75;
+        const pts = [
+            { x: -s, y: -s }, { x: s, y: -s }, { x: s, y: s }, { x: -s, y: s }
+        ].map(p => ({ x: c.x + (p.x * cos - p.y * sin) * c.z, y: c.y + (p.x * sin + p.y * cos) * c.z }));
+        const ptsTop = pts.map(p => ({ x: p.x + depth * 0.5, y: p.y - depth * 0.8 }));
+
+        ctx.globalAlpha = 0.7;
+        ctx.strokeStyle = c.color;
+        ctx.lineWidth = 1.2;
+        // base
+        drawGlassLine(pts[0].x, pts[0].y, pts[1].x, pts[1].y, 0.25);
+        drawGlassLine(pts[1].x, pts[1].y, pts[2].x, pts[2].y, 0.25);
+        drawGlassLine(pts[2].x, pts[2].y, pts[3].x, pts[3].y, 0.25);
+        drawGlassLine(pts[3].x, pts[3].y, pts[0].x, pts[0].y, 0.25);
+        // top
+        drawGlassLine(ptsTop[0].x, ptsTop[0].y, ptsTop[1].x, ptsTop[1].y, 0.25);
+        drawGlassLine(ptsTop[1].x, ptsTop[1].y, ptsTop[2].x, ptsTop[2].y, 0.25);
+        drawGlassLine(ptsTop[2].x, ptsTop[2].y, ptsTop[3].x, ptsTop[3].y, 0.25);
+        drawGlassLine(ptsTop[3].x, ptsTop[3].y, ptsTop[0].x, ptsTop[0].y, 0.25);
+        // pillars
+        for (let i = 0; i < 4; i++) {
+            drawGlassLine(pts[i].x, pts[i].y, ptsTop[i].x, ptsTop[i].y, 0.25);
+        }
+        ctx.globalAlpha = 1;
+    }
+
+    function shade(hex, amt) {
+        // simple hex shade
+        let col = hex.replace('#','');
+        if (col.length === 3) col = col.split('').map(c=>c+c).join('');
+        const num = parseInt(col, 16);
+        let r = (num >> 16) + amt;
+        let g = ((num >> 8) & 0x00FF) + amt;
+        let b = (num & 0x0000FF) + amt;
+        r = Math.min(255, Math.max(0, r));
+        g = Math.min(255, Math.max(0, g));
+        b = Math.min(255, Math.max(0, b));
+        return '#' + (r<<16 | g<<8 | b).toString(16).padStart(6, '0');
+    }
+
+    function tick() {
+        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+        // subtle background tint
+        ctx.fillStyle = 'rgba(33,33,33,0.25)';
+        ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+        // update nodes (parallax network)
+        for (const n of nodes) {
+            n.x += n.vx * n.z;
+            n.y += n.vy * n.z;
+            if (n.x < -40) n.x = canvas.clientWidth + 40;
+            if (n.x > canvas.clientWidth + 40) n.x = -40;
+            if (n.y < -40) n.y = canvas.clientHeight + 40;
+            if (n.y > canvas.clientHeight + 40) n.y = -40;
+        }
+
+        // draw links with glass glow
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const a = nodes[i], b = nodes[j];
+                const dx = a.x - b.x, dy = a.y - b.y;
+                const dist = Math.hypot(dx, dy);
+                const maxDist = 140;
+                if (dist < maxDist) {
+                    const alpha = (1 - dist / maxDist) * 0.35;
+                    drawGlassLine(a.x, a.y, b.x, b.y, alpha);
+                }
+            }
+        }
+
+        // update and draw glass cubes
+        for (const c of cubes) {
+            c.r += c.vr;
+            c.x += c.vx * c.z;
+            c.y += c.vy * c.z;
+            if (c.x < -60) c.x = canvas.clientWidth + 60;
+            if (c.x > canvas.clientWidth + 60) c.x = -60;
+            if (c.y < -60) c.y = canvas.clientHeight + 60;
+            if (c.y > canvas.clientHeight + 60) c.y = -60;
+            drawGlassCube(c);
+        }
+
+        requestAnimationFrame(tick);
+    }
+    tick();
+}
+
+function initTypewriter() {
+    const el = document.getElementById('typewriter');
+    if (!el) return;
+    const items = ['Learn and Understand', 'Build and Integrate', 'Control and Regulate'];
+    let idx = 0;
+    let char = 0;
+    let deleting = false;
+    let pause = 0;
+
+    el.style.borderRight = '2px solid #d2ff1e';
+    el.style.paddingRight = '4px';
+
+    function step() {
+        const current = items[idx];
+        if (pause > 0) { pause--; return queueNext(60); }
+
+        if (!deleting) {
+            char++;
+            el.textContent = current.slice(0, char);
+            if (char === current.length) {
+                deleting = true;
+                pause = 45; // pause at end
+            }
+            return queueNext(40 + Math.random()*40);
+        } else {
+            char--;
+            el.textContent = current.slice(0, char);
+            if (char === 0) {
+                deleting = false;
+                idx = (idx + 1) % items.length;
+                pause = 18; // pause before typing next
+            }
+            return queueNext(30 + Math.random()*30);
+        }
+    }
+
+    function queueNext(delay) {
+        setTimeout(step, delay);
+    }
+
+    step();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initHeroCanvas();
+    initTypewriter();
+});
+
 // Mobile menu close on outside click
 document.addEventListener('click', (e) => {
+    if (!hamburger || !navMenu) return;
     if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        document.body.style.overflow = '';
     }
 });
 
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && hamburger && navMenu) {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        document.body.style.overflow = '';
     }
 });
 

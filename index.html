@@ -180,57 +180,16 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-background">
-        <div class="hero-shapes">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
-        </div>
-      </div>
+      <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <div class="hero-text">
           <h1 class="hero-title">
-            <span class="gradient-text" data-translate="hero.title"
-              >Blockchain & Fintech Lab</span
-            >
-            <br />
-            <span class="subtitle" data-translate="hero.subtitle"
-              >Powered by Nazarbayev University</span
-            >
+            <span class="static-title">Blockchain made easy to</span>
+            <span class="typewriter-line"><span id="typewriter"></span></span>
           </h1>
-          <p class="hero-description" data-translate="hero.description">
-            Создаем будущее цифрового Казахстана. Исследования. Образование.
-            Внедрение.
-          </p>
           <div class="hero-buttons">
-            <button
-              class="btn btn-primary"
-              onclick="scrollToSection('projects')"
-              data-translate="hero.btn1"
-            >
-              Проекты
-            </button>
-            <button
-              class="btn btn-secondary"
-              onclick="scrollToSection('education')"
-              data-translate="hero.btn2"
-            >
-              Курсы
-            </button>
-            <a href="https://luma.com/h0bvnh16" target="_blank">
-              <button class="btn btn-outline" data-translate="hero.btn3">
-                РЕГИСТРАЦИЯ НА ОТКРЫТИЕ
-              </button>
-            </a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="blockchain-animation">
-            <div class="block"></div>
-            <div class="block"></div>
-            <div class="block"></div>
-            <div class="block"></div>
-            <div class="block"></div>
+            <a href="https://luma.com/h0bvnh16" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Посетить открытие</a>
           </div>
         </div>
       </div>
@@ -266,8 +225,48 @@
             class="partner-logo-marquee"
           />
           <img
+            src="assets/images/partners/fireblocks.png"
+            alt="Fireblocks"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/solanaLogo.svg"
+            alt="Solana"
+            class="partner-logo-marquee"
+          />
+          <img
             src="assets/images/partners/hkstp-logo.png"
             alt="HKSTP"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/kazakhtelecom-seeklogo.png"
+            alt="KazakhTelecom"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/nu-logo.png"
+            alt="Nazarbayev University"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/abc-logo.png"
+            alt="Astana Business Campus"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/fund-logo.png"
+            alt="Фонд социального развития"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/jasaim-logo.png"
+            alt="JASAIM"
+            class="partner-logo-marquee"
+          />
+          <img
+            src="assets/images/partners/ah-logo.png"
+            alt="Astana Hub"
             class="partner-logo-marquee"
           />
         </div>
@@ -533,7 +532,7 @@
           <div class="project-row project-kazsmartchain">
             <div class="project-visual">
               <img
-                src="assets/images/projects/kazsmartchain.png"
+                src="assets/images/projects/kazsmartchain-diagram.jpg"
                 alt="KazSmartChain Preview"
               />
             </div>
@@ -817,7 +816,7 @@
           </div>
 
           <div class="contact-form">
-            <h3 data-translate="contact.form">Обратная связь</h3>
+            <h3 data-translate="contact.form">Свяжитесь с нами</h3>
             <form>
               <div class="form-group">
                 <input type="text" data-translate-placeholder="contact.name" placeholder="Ваше имя" required />
