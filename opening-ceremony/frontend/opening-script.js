@@ -97,7 +97,7 @@ function mountDashboard() {
   function renderBubbles(items) {
     stageEl.innerHTML = '';
     // Spawn limited initial bubbles
-    const max = Math.min(items.length, 24);
+    const max = Math.min(items.length, 18);
     for (let i = 0; i < max; i++) {
       spawnBubble(items[i], false);
     }
@@ -111,48 +111,30 @@ function mountDashboard() {
     msg.textContent = item.message || '';
     bubble.append(name, msg);
 
-    const size = 140 + Math.random() * 140; // 140-280px
+    const size = 160 + Math.random() * 120; // 160-280px
     bubble.style.width = `${size}px`;
-    bubble.style.height = `${size * 0.6}px`;
+    bubble.style.height = `${Math.max(90, size * 0.55)}px`;
 
-    const stageRect = stageEl.getBoundingClientRect();
-    const x = Math.random() * (stageRect.width - size);
-    const y = Math.random() * (stageRect.height - size);
-    bubble.style.transform = `translate(${x}px, ${y}px)`;
-    bubble.style.opacity = '0';
     stageEl.appendChild(bubble);
 
-    const driftX = (Math.random() - 0.5) * 60;
-    const driftY = (Math.random() - 0.5) * 40;
-    const duration = 8000 + Math.random() * 8000;
-    const start = performance.now();
-    const startX = x;
-    const startY = y;
+    // Simple orbital motion around stage center
+    const rect = stageEl.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const radiusX = (Math.min(rect.width, rect.height) / 3) + Math.random() * 80;
+    const radiusY = radiusX * (0.6 + Math.random() * 0.4);
+    let angle = Math.random() * Math.PI * 2;
+    const speed = 0.003 + Math.random() * 0.003; // radians per ms
 
-    function raf(t) {
-      const p = Math.min(1, (t - start) / duration);
-      const ease = 0.5 - Math.cos(p * Math.PI) / 2; // easeInOut
-      const nx = startX + driftX * ease;
-      const ny = startY + driftY * ease;
-      bubble.style.transform = `translate(${nx}px, ${ny}px)`;
-      bubble.style.opacity = String(0.2 + 0.8 * ease);
-      if (p < 1) requestAnimationFrame(raf);
-      else {
-        // reverse
-        const revStart = performance.now();
-        function rafBack(tt) {
-          const pp = Math.min(1, (tt - revStart) / duration);
-          const e2 = 0.5 - Math.cos(pp * Math.PI) / 2;
-          const nx2 = startX + driftX * (1 - e2);
-          const ny2 = startY + driftY * (1 - e2);
-          bubble.style.transform = `translate(${nx2}px, ${ny2}px)`;
-          if (pp < 1) requestAnimationFrame(rafBack);
-          else requestAnimationFrame(() => raf(performance.now()));
-        }
-        requestAnimationFrame(rafBack);
-      }
+    function frame(ts) {
+      angle += speed * 16.7; // approx 60fps step independent from RAF timestamp
+      const x = cx + Math.cos(angle) * radiusX - size / 2;
+      const y = cy + Math.sin(angle) * radiusY - Math.max(90, size * 0.55) / 2;
+      bubble.style.transform = `translate(${x}px, ${y}px)`;
+      bubble.style.opacity = '1';
+      requestAnimationFrame(frame);
     }
-    requestAnimationFrame(raf);
+    requestAnimationFrame(frame);
   }
 }
 

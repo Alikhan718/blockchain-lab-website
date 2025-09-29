@@ -137,13 +137,14 @@ html, body { height: 100%; }
 
 /* New full-screen stage with bubbles */
 .oc-stage { position: relative; height: calc(100vh - 120px); margin-top: 8px; }
-.oc-hero { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
-.oc-hero-number { font-size: 120px; font-weight: 900; color: var(--oc-accent); text-shadow: 0 0 30px rgba(210,255,30,0.35); line-height: 1; animation: pulse 3s ease-in-out infinite; }
-.oc-hero-label { margin-top: -8px; color: var(--oc-muted); font-size: 20px; font-weight: 700; }
-.oc-bubble-stage { position: absolute; inset: 0; overflow: hidden; }
-.oc-bubble { position: absolute; background: radial-gradient(circle at 30% 30%, rgba(210,255,30,0.75), rgba(210,255,30,0.2) 60%, rgba(210,255,30,0.05) 100%); border: 1px solid rgba(210,255,30,0.35); color: #101610; padding: 12px 14px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 20px rgba(210,255,30,0.25); backdrop-filter: blur(2px); will-change: transform, opacity; }
-.oc-bubble .name { font-weight: 900; font-size: 14px; display: block; }
-.oc-bubble .msg { font-weight: 600; font-size: 14px; opacity: 0.95; }
+.oc-hero { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 2; }
+.oc-hero-number { font-size: 140px; font-weight: 900; color: var(--oc-accent); text-shadow: 0 0 36px rgba(210,255,30,0.4); line-height: 1; animation: pulse 3s ease-in-out infinite; }
+.oc-hero-label { margin-top: -6px; color: var(--oc-muted); font-size: 22px; font-weight: 800; }
+.oc-bubble-stage { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
+.oc-bubble { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at 30% 30%, rgba(210,255,30,0.9), rgba(210,255,30,0.25) 60%, rgba(210,255,30,0.06) 100%); border: 1px solid rgba(210,255,30,0.4); color: #f4f4f4; padding: 12px 14px; border-radius: 999px; box-shadow: 0 12px 34px rgba(0,0,0,0.45), inset 0 0 24px rgba(210,255,30,0.3); backdrop-filter: blur(2px); will-change: transform, opacity; }
+.oc-bubble .name { font-weight: 900; font-size: 16px; display: block; }
+.oc-bubble .msg { font-weight: 600; font-size: 16px; opacity: 0.98; }
+.oc-bubble .name, .oc-bubble .msg { word-break: break-word; }
 
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
 
