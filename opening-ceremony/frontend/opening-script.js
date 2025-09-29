@@ -41,18 +41,57 @@ function mountDashboard() {
     renderList(items);
   });
 
-  // Socket.io live updates
-  // NOTE: The dashboard includes Socket.io CDN script tag
-  if (typeof io !== 'undefined' && BACKEND_URL) {
-    const socket = io(BACKEND_URL, { transports: ['websocket'], reconnection: true });
-    socket.on('wish:count', (data) => {
-      if (!data || typeof data.count !== 'number') return;
-      animateCount(countEl, data.count);
-    });
-    socket.on('wish:new', (wish) => {
-      prependWish(wish);
-    });
+  // Socket.io live updates + polling fallback
+  let socketConnected = false;
+  let lastRenderedId = null;
+  async function refreshLatest() {
+    try {
+      const items = await fetchLatest(30);
+      if (!items || !items.length) return;
+      // If first load, render and memorize latest id
+      if (!lastRenderedId) {
+        renderList(items);
+        lastRenderedId = items[0]?.id || items[0]?.ID || null;
+        return;
+      }
+      // Prepend only new items that were not seen yet
+      const newOnes = [];
+      for (const it of items) {
+        const id = it.id || it.ID;
+        if (id === lastRenderedId) break;
+        newOnes.push(it);
+      }
+      if (newOnes.length) {
+        for (let i = newOnes.length - 1; i >= 0; i--) prependWish(newOnes[i]);
+        lastRenderedId = items[0]?.id || items[0]?.ID || lastRenderedId;
+        // Update count as well
+        const count = await fetchCount();
+        animateCount(countEl, count);
+      }
+    } catch {}
   }
+
+  // Try to connect socket first
+  if (typeof io !== 'undefined' && BACKEND_URL) {
+    try {
+      const socket = io(BACKEND_URL, { transports: ['websocket'], reconnection: true });
+      socket.on('connect', () => { socketConnected = true; });
+      socket.on('disconnect', () => { socketConnected = false; });
+      socket.on('wish:count', (data) => {
+        if (!data || typeof data.count !== 'number') return;
+        animateCount(countEl, data.count);
+      });
+      socket.on('wish:new', (wish) => {
+        prependWish(wish);
+        lastRenderedId = lastRenderedId || wish.id;
+      });
+    } catch {}
+  }
+
+  // Polling fallback every 5s when socket isn't connected
+  setInterval(() => {
+    if (!socketConnected) refreshLatest();
+  }, 5000);
 
   function renderList(items) {
     listEl.innerHTML = '';
