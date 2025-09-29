@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пожелания гостя — Blockchain Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- NOTE: Replace or self-host the brand fonts if you have licenses -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./opening-style.css" />
+  <meta name="theme-color" content="#162c1b" />
+</head>
+<body class="oc-body">
+  <div class="oc-bg"></div>
+  <main class="oc-container">
+    <header class="oc-header">
+      <div class="oc-brand">
+        <img src="../../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab" class="oc-logo" />
+        <div class="oc-title">
+          <h1>Blockchain Lab</h1>
+          <p>Официальное открытие — оставьте своё пожелание</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="oc-card oc-animate-in">
+      <h2>Ваше пожелание</h2>
+      <form id="wishForm" class="oc-form" autocomplete="on" novalidate>
+        <div class="oc-field">
+          <label for="fullName">ФИО</label>
+          <input id="fullName" name="fullName" type="text" maxlength="120" required placeholder="Иванов Иван" />
+          <small class="oc-hint">Макс. 120 символов</small>
+        </div>
+        <div class="oc-field">
+          <label for="message">Пожелание / идея</label>
+          <textarea id="message" name="message" rows="5" maxlength="1000" required placeholder="Напишите ваши мысли..."></textarea>
+          <small class="oc-hint">Макс. 1000 символов</small>
+        </div>
+
+        <button type="submit" class="oc-button">
+          <span class="oc-button-glow"></span>
+          Отправить
+        </button>
+
+        <p id="status" class="oc-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="oc-footer">
+      <p>Спасибо за участие! Ваш вклад важен для развития лаборатории.</p>
+      <a class="oc-dashboard-link" href="./opening-dashboard.html">Перейти к экрану мероприятия</a>
+    </footer>
+  </main>
+
+  <!-- Config: Set BACKEND_URL after deploy -->
+  <script>
+    window.OC_CONFIG = {
+      // TODO: After deploy, set your backend URL below
+      // Example: 'https://opening-ceremony-backend.up.railway.app'
+      BACKEND_URL: ''
+    };
+  </script>
+  <script src="./opening-script.js" type="module"></script>
+</body>
+</html>
+
+

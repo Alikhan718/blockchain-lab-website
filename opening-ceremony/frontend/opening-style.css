@@ -1,0 +1,146 @@
+/* Opening Ceremony Styles */
+/* Brand colors: #162c1b, #d2ff1e, #f4f4f4, #212121 */
+/* Fonts placeholder: Inter as fallback for Nekst/Atyp */
+
+:root {
+  --oc-bg: #0e1a12;
+  --oc-bg-2: #162c1b;
+  --oc-accent: #d2ff1e;
+  --oc-text: #f4f4f4;
+  --oc-muted: #9aa5a0;
+  --oc-card: #121212f2;
+  --oc-card-border: #2a2a2a;
+  --oc-elev: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+.oc-body {
+  margin: 0;
+  background: radial-gradient(1000px 600px at 10% 10%, var(--oc-bg-2), #0a110d 60%), linear-gradient(160deg, #0c140f, #0a0f0c);
+  color: var(--oc-text);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: 0.2px;
+  overflow-x: hidden;
+}
+
+.oc-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(800px 400px at 85% 15%, rgba(210,255,30,0.15), transparent),
+              radial-gradient(700px 300px at 10% 90%, rgba(210,255,30,0.08), transparent);
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.oc-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+.oc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0 24px;
+}
+
+.oc-header-dashboard { padding-bottom: 8px; }
+
+.oc-brand { display: flex; align-items: center; gap: 16px; }
+.oc-logo { width: 56px; height: auto; filter: drop-shadow(0 2px 8px rgba(210,255,30,0.25)); }
+.oc-title h1 { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: 0.4px; }
+.oc-title p { margin: 4px 0 0; color: var(--oc-muted); font-weight: 600; }
+
+.oc-stats { display: flex; align-items: center; gap: 24px; }
+.oc-counter { display: grid; align-items: end; }
+.oc-counter-number { font-size: 48px; font-weight: 800; color: var(--oc-accent); text-shadow: 0 0 20px rgba(210,255,30,0.25); }
+.oc-counter-label { color: var(--oc-muted); margin-top: -6px; }
+
+.oc-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--oc-card-border);
+  border-radius: 16px;
+  box-shadow: var(--oc-elev);
+  padding: 20px;
+}
+
+.oc-list-card { padding: 12px; }
+
+.oc-form { display: grid; gap: 16px; }
+.oc-field { display: grid; gap: 8px; }
+.oc-field label { font-weight: 600; }
+.oc-field input, .oc-field textarea {
+  width: 100%;
+  background: #0c0c0c;
+  border: 1px solid #222;
+  color: var(--oc-text);
+  padding: 12px 14px;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.oc-field input:focus, .oc-field textarea:focus {
+  border-color: var(--oc-accent);
+  box-shadow: 0 0 0 4px rgba(210,255,30,0.12);
+}
+.oc-hint { color: var(--oc-muted); font-size: 12px; }
+
+.oc-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #b8ff00, #d2ff1e);
+  color: #121212;
+  font-weight: 800;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(210,255,30,0.22), inset 0 -4px 0 rgba(0,0,0,0.2);
+  transition: transform .08s ease, filter .2s ease;
+}
+.oc-button:hover { filter: brightness(1.05); }
+.oc-button:active { transform: translateY(1px); }
+.oc-button-glow { position: absolute; inset: -2px; border-radius: inherit; box-shadow: 0 0 40px rgba(210,255,30,0.35); pointer-events: none; }
+
+.oc-status { min-height: 22px; color: var(--oc-muted); }
+
+.oc-footer { text-align: center; color: var(--oc-muted); margin-top: 18px; }
+.oc-dashboard-link { color: var(--oc-accent); text-decoration: none; font-weight: 600; }
+.oc-dashboard-link:hover { text-decoration: underline; }
+
+.oc-wish-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.oc-wish-item { background: #0b0b0b; border: 1px solid #242424; border-radius: 12px; padding: 12px; min-height: 110px; display: grid; grid-template-rows: auto 1fr auto; gap: 6px; animation: fadeInUp .35s ease both; }
+.oc-wish-name { font-weight: 700; color: var(--oc-accent); font-size: 14px; }
+.oc-wish-msg { color: var(--oc-text); opacity: 0.95; }
+.oc-wish-time { color: var(--oc-muted); font-size: 12px; text-align: right; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.oc-animate-in { animation: fadeInUp .4s ease both; }
+
+@media (max-width: 1024px) {
+  .oc-wish-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .oc-header { flex-direction: column; align-items: flex-start; }
+  .oc-logo { width: 48px; }
+  .oc-title h1 { font-size: 24px; }
+  .oc-wish-list { grid-template-columns: 1fr; }
+}
+
+

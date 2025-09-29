@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Экран мероприятия — Пожелания в реальном времени</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./opening-style.css" />
+  <meta name="theme-color" content="#162c1b" />
+</head>
+<body class="oc-body oc-dashboard">
+  <div class="oc-bg"></div>
+  <main class="oc-container">
+    <header class="oc-header oc-header-dashboard">
+      <div class="oc-brand">
+        <img src="../../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab" class="oc-logo" />
+        <div class="oc-title">
+          <h1>Пожелания гостей</h1>
+          <p>Обновляется в реальном времени</p>
+        </div>
+      </div>
+      <div class="oc-stats">
+        <div class="oc-counter">
+          <span id="wishCount" class="oc-counter-number">0</span>
+          <span class="oc-counter-label">всего пожеланий</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="oc-card oc-animate-in oc-list-card">
+      <ul id="wishList" class="oc-wish-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <!-- Config: Set BACKEND_URL after deploy -->
+  <script>
+    window.OC_CONFIG = {
+      // TODO: After deploy, set your backend URL below
+      // Example: 'https://opening-ceremony-backend.up.railway.app'
+      BACKEND_URL: ''
+    };
+  </script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-bcdh8G6oAzhR9j4vJ3Xg1wAzblqEw3Vd7x6VqpWoYAQdD+uYVwhwAFGMpMVMlN4C" crossorigin="anonymous"></script>
+  <script src="./opening-script.js" type="module"></script>
+</body>
+</html>
+
+

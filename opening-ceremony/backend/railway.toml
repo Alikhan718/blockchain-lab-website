@@ -1,0 +1,11 @@
+[env]
+PORT = "8080"
+
+[service]
+name = "opening-ceremony-backend"
+start = "npm start"
+
+# Deployment notes:
+# - Provision a PostgreSQL plugin in Railway and reference its DATABASE_URL.
+# - Set FRONTEND_ORIGIN to your Vercel domain, e.g. https://blockchain-lab.vercel.app
+
