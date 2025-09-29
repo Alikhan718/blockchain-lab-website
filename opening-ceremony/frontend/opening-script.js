@@ -31,14 +31,15 @@ async function fetchLatest(limit = 30) {
 }
 
 function mountDashboard() {
-  const countEl = $('#wishCount');
-  const listEl = $('#wishList');
-  if (!countEl || !listEl) return;
+  // New bubble dashboard
+  const heroEl = $('#heroNumber');
+  const stageEl = $('#bubbleStage');
+  if (!heroEl || !stageEl) return;
 
   // Initial fetch
   Promise.all([fetchCount(), fetchLatest(60)]).then(([count, items]) => {
-    countEl.textContent = String(count);
-    renderList(items);
+    heroEl.textContent = String(count);
+    renderBubbles(items);
   });
 
   // Socket.io live updates + polling fallback
@@ -50,7 +51,7 @@ function mountDashboard() {
       if (!items || !items.length) return;
       // If first load, render and memorize latest id
       if (!lastRenderedId) {
-        renderList(items);
+        renderBubbles(items);
         lastRenderedId = items[0]?.id || items[0]?.ID || null;
         return;
       }
@@ -62,11 +63,11 @@ function mountDashboard() {
         newOnes.push(it);
       }
       if (newOnes.length) {
-        for (let i = newOnes.length - 1; i >= 0; i--) prependWish(newOnes[i]);
+        for (let i = newOnes.length - 1; i >= 0; i--) spawnBubble(newOnes[i]);
         lastRenderedId = items[0]?.id || items[0]?.ID || lastRenderedId;
         // Update count as well
         const count = await fetchCount();
-        animateCount(countEl, count);
+        animateCount(heroEl, count);
       }
     } catch {}
   }
@@ -79,10 +80,10 @@ function mountDashboard() {
       socket.on('disconnect', () => { socketConnected = false; });
       socket.on('wish:count', (data) => {
         if (!data || typeof data.count !== 'number') return;
-        animateCount(countEl, data.count);
+        animateCount(heroEl, data.count);
       });
       socket.on('wish:new', (wish) => {
-        prependWish(wish);
+        spawnBubble(wish);
         lastRenderedId = lastRenderedId || wish.id;
       });
     } catch {}
@@ -93,25 +94,65 @@ function mountDashboard() {
     if (!socketConnected) refreshLatest();
   }, 5000);
 
-  function renderList(items) {
-    listEl.innerHTML = '';
-    for (const item of items) prependWish(item, false);
+  function renderBubbles(items) {
+    stageEl.innerHTML = '';
+    // Spawn limited initial bubbles
+    const max = Math.min(items.length, 24);
+    for (let i = 0; i < max; i++) {
+      spawnBubble(items[i], false);
+    }
   }
 
-  function prependWish(item, useAnimation = true) {
-    const li = createEl('li', 'oc-wish-item');
-    if (!useAnimation) li.style.animation = 'none';
-    const name = createEl('div', 'oc-wish-name');
-    name.textContent = item.fullName || item.full_name || 'Гость';
-    const msg = createEl('div', 'oc-wish-msg');
+  function spawnBubble(item, animateIn = true) {
+    const bubble = createEl('div', 'oc-bubble');
+    const name = createEl('span', 'name');
+    name.textContent = item.fullName || item.full_name || 'Guest';
+    const msg = createEl('span', 'msg');
     msg.textContent = item.message || '';
-    const time = createEl('div', 'oc-wish-time');
-    time.textContent = formatTime(item.createdAt || item.created_at);
-    li.append(name, msg, time);
-    listEl.prepend(li);
-    // Keep last 100
-    const children = listEl.children;
-    if (children.length > 100) listEl.removeChild(children[children.length - 1]);
+    bubble.append(name, msg);
+
+    const size = 140 + Math.random() * 140; // 140-280px
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size * 0.6}px`;
+
+    const stageRect = stageEl.getBoundingClientRect();
+    const x = Math.random() * (stageRect.width - size);
+    const y = Math.random() * (stageRect.height - size);
+    bubble.style.transform = `translate(${x}px, ${y}px)`;
+    bubble.style.opacity = '0';
+    stageEl.appendChild(bubble);
+
+    const driftX = (Math.random() - 0.5) * 60;
+    const driftY = (Math.random() - 0.5) * 40;
+    const duration = 8000 + Math.random() * 8000;
+    const start = performance.now();
+    const startX = x;
+    const startY = y;
+
+    function raf(t) {
+      const p = Math.min(1, (t - start) / duration);
+      const ease = 0.5 - Math.cos(p * Math.PI) / 2; // easeInOut
+      const nx = startX + driftX * ease;
+      const ny = startY + driftY * ease;
+      bubble.style.transform = `translate(${nx}px, ${ny}px)`;
+      bubble.style.opacity = String(0.2 + 0.8 * ease);
+      if (p < 1) requestAnimationFrame(raf);
+      else {
+        // reverse
+        const revStart = performance.now();
+        function rafBack(tt) {
+          const pp = Math.min(1, (tt - revStart) / duration);
+          const e2 = 0.5 - Math.cos(pp * Math.PI) / 2;
+          const nx2 = startX + driftX * (1 - e2);
+          const ny2 = startY + driftY * (1 - e2);
+          bubble.style.transform = `translate(${nx2}px, ${ny2}px)`;
+          if (pp < 1) requestAnimationFrame(rafBack);
+          else requestAnimationFrame(() => raf(performance.now()));
+        }
+        requestAnimationFrame(rafBack);
+      }
+    }
+    requestAnimationFrame(raf);
   }
 }
 
@@ -134,6 +175,7 @@ function mountForm() {
   const form = document.getElementById('wishForm');
   if (!form) return;
   const statusEl = document.getElementById('status');
+  const thanksEl = document.getElementById('thankYou');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -141,19 +183,19 @@ function mountForm() {
     const message = document.getElementById('message').value.trim();
 
     if (!BACKEND_URL) {
-      statusEl.textContent = 'Сервис временно недоступен. Повторите позже.';
+      statusEl.textContent = 'Service temporarily unavailable. Please try again later.';
       return;
     }
 
     if (!fullName || !message) {
-      statusEl.textContent = 'Пожалуйста, заполните ФИО и пожелание.';
+      statusEl.textContent = 'Please fill in full name and note.';
       return;
     }
 
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.style.opacity = '0.8';
-    statusEl.textContent = 'Отправка...';
+    statusEl.textContent = 'Sending...';
 
     try {
       const res = await fetch(`${BACKEND_URL}/api/wishes`, {
@@ -163,10 +205,14 @@ function mountForm() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Ошибка отправки');
-      statusEl.textContent = 'Спасибо! Ваше пожелание отправлено.';
-      form.reset();
+      // Success UI: hide form, show thank-you, confetti
+      form.classList.add('hidden');
+      if (thanksEl) {
+        thanksEl.classList.remove('hidden');
+        launchConfetti();
+      }
     } catch (err) {
-      statusEl.textContent = 'Ошибка. Пожалуйста, попробуйте снова.';
+      statusEl.textContent = 'Error. Please try again.';
     } finally {
       btn.disabled = false;
       btn.style.opacity = '1';
@@ -183,5 +229,41 @@ document.addEventListener('DOMContentLoaded', () => {
 // Deployment notes:
 // - Set window.OC_CONFIG.BACKEND_URL in HTML to your Railway backend URL
 // - Ensure backend FRONTEND_ORIGIN matches your Vercel domain
+
+// Minimal confetti burst without dependencies
+function launchConfetti() {
+  const durationMs = 1200;
+  const count = 60;
+  const container = document.body;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('span');
+    p.style.position = 'fixed';
+    p.style.top = '50%';
+    p.style.left = '50%';
+    p.style.width = '6px';
+    p.style.height = '6px';
+    p.style.borderRadius = '50%';
+    p.style.background = i % 3 === 0 ? '#d2ff1e' : i % 3 === 1 ? '#7eff8a' : '#fff36e';
+    p.style.pointerEvents = 'none';
+    p.style.zIndex = '9999';
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 6 + Math.random() * 8;
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed - 6;
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    const start = performance.now();
+    const step = (t) => {
+      const dt = (t - start) / 16.7;
+      x += vx;
+      y += vy + dt * 0.6; // gravity
+      p.style.transform = `translate(${x - 3}px, ${y - 3}px)`;
+      if (t - start < durationMs) requestAnimationFrame(step);
+      else p.remove();
+    };
+    container.appendChild(p);
+    requestAnimationFrame(step);
+  }
+}
 
 

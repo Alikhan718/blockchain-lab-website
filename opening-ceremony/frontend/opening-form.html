@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Пожелания гостя — Blockchain Lab</title>
+  <title>Guest Note — Blockchain Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- NOTE: Replace or self-host the brand fonts if you have licenses -->
@@ -18,40 +18,45 @@
   <main class="oc-container">
     <header class="oc-header">
       <div class="oc-brand">
-        <img src="../../assets/images/BFLab_yellow_logo.png" alt="Blockchain Lab" class="oc-logo" />
+        <img src="../../assets/images/BFLab_yellow icon_logo.png" alt="Blockchain Lab" class="oc-logo" />
         <div class="oc-title">
           <h1>Blockchain Lab</h1>
-          <p>Официальное открытие — оставьте своё пожелание</p>
+          <p>Official Opening — leave your note</p>
         </div>
       </div>
     </header>
 
     <section class="oc-card oc-animate-in">
-      <h2>Ваше пожелание</h2>
+      <h2>Your note</h2>
       <form id="wishForm" class="oc-form" autocomplete="on" novalidate>
         <div class="oc-field">
-          <label for="fullName">ФИО</label>
-          <input id="fullName" name="fullName" type="text" maxlength="120" required placeholder="Иванов Иван" />
-          <small class="oc-hint">Макс. 120 символов</small>
+          <label for="fullName">Full name</label>
+          <input id="fullName" name="fullName" type="text" maxlength="120" required placeholder="John Smith" />
         </div>
         <div class="oc-field">
-          <label for="message">Пожелание / идея</label>
-          <textarea id="message" name="message" rows="5" maxlength="1000" required placeholder="Напишите ваши мысли..."></textarea>
-          <small class="oc-hint">Макс. 1000 символов</small>
+          <label for="message">Note / idea</label>
+          <textarea id="message" name="message" rows="5" maxlength="1000" required placeholder="Write your note..."></textarea>
         </div>
 
         <button type="submit" class="oc-button">
           <span class="oc-button-glow"></span>
-          Отправить
+          Submit
         </button>
 
         <p id="status" class="oc-status" aria-live="polite"></p>
       </form>
+
+      <!-- Thank-you state (hidden by default) -->
+      <div id="thankYou" class="oc-thanks hidden" role="status" aria-live="polite">
+        <div class="oc-thanks-emoji">🎉</div>
+        <h3>Thank you for your contribution!</h3>
+        <p>Your note will be delivered to the Blockchain.</p>
+        <a class="oc-dashboard-link" href="./opening-dashboard.html">Open event screen</a>
+      </div>
     </section>
 
     <footer class="oc-footer">
-      <p>Спасибо за участие! Ваш вклад важен для развития лаборатории.</p>
-      <a class="oc-dashboard-link" href="./opening-dashboard.html">Перейти к экрану мероприятия</a>
+      <p>Thank you for participating! Your support matters.</p>
     </footer>
   </main>
 

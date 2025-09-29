@@ -34,6 +34,7 @@ html, body { height: 100%; }
               radial-gradient(700px 300px at 10% 90%, rgba(210,255,30,0.08), transparent);
   filter: blur(20px);
   z-index: 0;
+  animation: bgFloat 16s ease-in-out infinite alternate;
 }
 
 .oc-container {
@@ -56,8 +57,8 @@ html, body { height: 100%; }
 
 .oc-brand { display: flex; align-items: center; gap: 16px; }
 .oc-logo { width: 56px; height: auto; filter: drop-shadow(0 2px 8px rgba(210,255,30,0.25)); }
-.oc-title h1 { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: 0.4px; }
-.oc-title p { margin: 4px 0 0; color: var(--oc-muted); font-weight: 600; }
+.oc-title h1 { margin: 0; font-size: 36px; font-weight: 800; letter-spacing: 0.4px; text-align: center; }
+.oc-title p { margin: 6px 0 0; color: var(--oc-muted); font-weight: 600; text-align: center; font-size: 18px; }
 
 .oc-stats { display: flex; align-items: center; gap: 24px; }
 .oc-counter { display: grid; align-items: end; }
@@ -69,29 +70,30 @@ html, body { height: 100%; }
   border: 1px solid var(--oc-card-border);
   border-radius: 16px;
   box-shadow: var(--oc-elev);
-  padding: 20px;
+  padding: 24px;
 }
 
 .oc-list-card { padding: 12px; }
 
-.oc-form { display: grid; gap: 16px; }
+.oc-form { display: grid; gap: 18px; }
 .oc-field { display: grid; gap: 8px; }
-.oc-field label { font-weight: 600; }
+.oc-field label { font-weight: 700; font-size: 16px; text-align: center; }
 .oc-field input, .oc-field textarea {
   width: 100%;
   background: #0c0c0c;
   border: 1px solid #222;
   color: var(--oc-text);
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-radius: 12px;
   outline: none;
   transition: border-color .2s ease, box-shadow .2s ease;
+  font-size: 16px;
 }
 .oc-field input:focus, .oc-field textarea:focus {
   border-color: var(--oc-accent);
   box-shadow: 0 0 0 4px rgba(210,255,30,0.12);
 }
-.oc-hint { color: var(--oc-muted); font-size: 12px; }
+.oc-hint { display: none; }
 
 .oc-button {
   position: relative;
@@ -102,12 +104,13 @@ html, body { height: 100%; }
   background: linear-gradient(90deg, #b8ff00, #d2ff1e);
   color: #121212;
   font-weight: 800;
-  padding: 14px 20px;
+  padding: 16px 22px;
   border-radius: 14px;
   border: none;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(210,255,30,0.22), inset 0 -4px 0 rgba(0,0,0,0.2);
   transition: transform .08s ease, filter .2s ease;
+  font-size: 18px;
 }
 .oc-button:hover { filter: brightness(1.05); }
 .oc-button:active { transform: translateY(1px); }
@@ -115,19 +118,43 @@ html, body { height: 100%; }
 
 .oc-status { min-height: 22px; color: var(--oc-muted); }
 
-.oc-footer { text-align: center; color: var(--oc-muted); margin-top: 18px; }
+/* Thank-you state */
+.hidden { display: none !important; }
+.oc-thanks { text-align: center; padding: 24px 12px; display: grid; gap: 8px; justify-items: center; }
+.oc-thanks-emoji { font-size: 48px; filter: drop-shadow(0 6px 18px rgba(210,255,30,0.25)); animation: pop .6s ease both; }
+.oc-thanks h3 { margin: 6px 0 0; font-size: 22px; }
+.oc-thanks p { margin: 4px 0 10px; color: var(--oc-muted); }
+
+@keyframes pop {
+  0% { transform: scale(.6); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.oc-footer { text-align: center; color: var(--oc-muted); margin-top: 18px; font-size: 16px; }
 .oc-dashboard-link { color: var(--oc-accent); text-decoration: none; font-weight: 600; }
 .oc-dashboard-link:hover { text-decoration: underline; }
 
-.oc-wish-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.oc-wish-item { background: #0b0b0b; border: 1px solid #242424; border-radius: 12px; padding: 12px; min-height: 110px; display: grid; grid-template-rows: auto 1fr auto; gap: 6px; animation: fadeInUp .35s ease both; }
-.oc-wish-name { font-weight: 700; color: var(--oc-accent); font-size: 14px; }
-.oc-wish-msg { color: var(--oc-text); opacity: 0.95; }
-.oc-wish-time { color: var(--oc-muted); font-size: 12px; text-align: right; }
+/* New full-screen stage with bubbles */
+.oc-stage { position: relative; height: calc(100vh - 120px); margin-top: 8px; }
+.oc-hero { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.oc-hero-number { font-size: 120px; font-weight: 900; color: var(--oc-accent); text-shadow: 0 0 30px rgba(210,255,30,0.35); line-height: 1; animation: pulse 3s ease-in-out infinite; }
+.oc-hero-label { margin-top: -8px; color: var(--oc-muted); font-size: 20px; font-weight: 700; }
+.oc-bubble-stage { position: absolute; inset: 0; overflow: hidden; }
+.oc-bubble { position: absolute; background: radial-gradient(circle at 30% 30%, rgba(210,255,30,0.75), rgba(210,255,30,0.2) 60%, rgba(210,255,30,0.05) 100%); border: 1px solid rgba(210,255,30,0.35); color: #101610; padding: 12px 14px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 20px rgba(210,255,30,0.25); backdrop-filter: blur(2px); will-change: transform, opacity; }
+.oc-bubble .name { font-weight: 900; font-size: 14px; display: block; }
+.oc-bubble .msg { font-weight: 600; font-size: 14px; opacity: 0.95; }
+
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bgFloat {
+  0% { transform: translate3d(0,0,0) scale(1); opacity: 0.9; }
+  100% { transform: translate3d(0,-20px,0) scale(1.03); opacity: 1; }
 }
 
 .oc-animate-in { animation: fadeInUp .4s ease both; }
@@ -139,8 +166,12 @@ html, body { height: 100%; }
 @media (max-width: 640px) {
   .oc-header { flex-direction: column; align-items: flex-start; }
   .oc-logo { width: 48px; }
-  .oc-title h1 { font-size: 24px; }
+  .oc-title h1 { font-size: 28px; text-align: center; width: 100%; }
   .oc-wish-list { grid-template-columns: 1fr; }
+  /* Simpler phone form */
+  .oc-field textarea { min-height: 140px; }
+  .oc-card { padding: 16px; }
+  .oc-button { width: 100%; }
 }
 
 
