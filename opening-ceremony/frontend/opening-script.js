@@ -124,10 +124,13 @@ function mountDashboard() {
     const radiusX = (Math.min(rect.width, rect.height) / 3) + Math.random() * 80;
     const radiusY = radiusX * (0.6 + Math.random() * 0.4);
     let angle = Math.random() * Math.PI * 2;
-    const speed = 0.003 + Math.random() * 0.003; // radians per ms
+    const speed = 0.0001 + Math.random() * 0.0002; // radians per ms (slow & smooth)
+    let lastTs = performance.now();
 
     function frame(ts) {
-      angle += speed * 16.7; // approx 60fps step independent from RAF timestamp
+      const dt = Math.min(50, ts - lastTs); // clamp to avoid large jumps
+      lastTs = ts;
+      angle += speed * dt;
       const x = cx + Math.cos(angle) * radiusX - size / 2;
       const y = cy + Math.sin(angle) * radiusY - Math.max(90, size * 0.55) / 2;
       bubble.style.transform = `translate(${x}px, ${y}px)`;
