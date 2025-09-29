@@ -1,6 +1,6 @@
 // Opening Ceremony Frontend script (Form + Dashboard)
 
-const CONFIG = window.OC_CONFIG || { BACKEND_URL: '' };
+const CONFIG = window.OC_CONFIG || { BACKEND_URL: 'https://blockchain-lab-website-production.up.railway.app/' };
 const BACKEND_URL = CONFIG.BACKEND_URL?.replace(/\/$/, '') || '';
 
 function $(sel) { return document.querySelector(sel); }
