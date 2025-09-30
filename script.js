@@ -76,7 +76,7 @@ const translations = {
         'about.problem.text': 'Отсутствие безопасной, децентрализованной среды для хранения государственных данных и проведения исследований в области блокчейн-технологий.',
         'about.solution': 'Решение',
         'about.solution.text': 'Создание комплексной экосистемы, объединяющей исследования, образование и коммерциализацию блокчейн-технологий.',
-        'about.stats.investment': 'млн. тенге инвестиций',
+        'about.stats.investment': 'проведенных хакатонов',
         'about.stats.graduates': 'выпускников в год',
         'about.stats.directions': 'пилотных проектов',
         'about.partners': 'Наши партнеры',
@@ -198,7 +198,7 @@ const translations = {
         'about.problem.text': 'Lack of secure, decentralized environment for storing government data and conducting blockchain technology research.',
         'about.solution': 'Solution',
         'about.solution.text': 'Creating a comprehensive ecosystem that combines research, education and commercialization of blockchain technologies.',
-        'about.stats.investment': 'million tenge investment',
+        'about.stats.investment': 'hackathons',
         'about.stats.graduates': 'graduates per year',
         'about.stats.directions': 'pilot projects',
         'about.partners': 'Our Partners',
@@ -337,7 +337,7 @@ const translations = {
         'about.problem.text': 'Мемлекеттік мәліметтерді сақтау және блокчейн-технологиялары саласында зерттеулер жүргізу үшін қауіпсіз, децентрализацияланған ортаның болмауы.',
         'about.solution': 'Шешім',
         'about.solution.text': 'Блокчейн-технологияларының зерттеулерін, білім беруді және коммерцияландыруды біріктіретін кешенді экожүйені құру.',
-        'about.stats.investment': 'млн. тенге инвестиция',
+        'about.stats.investment': 'проведенных хакатонов',
         'about.stats.graduates': 'жылына түлек',
         'about.stats.directions': 'пилот проекттер',
         'about.partners': 'Біздің серіктестер',
@@ -1060,7 +1060,7 @@ Object.assign(translations.kz, {
 
 // Extend translations for new homepage keys
 Object.assign(translations.ru, {
-  'about.stats.investment.label': 'млн. тенге инвестиций',
+  'about.stats.investment.label': 'проведенных хакатонов',
   'about.stats.graduates.label': 'выпускников в год',
   'about.stats.directions.label': 'основных направления',
   'seds.title': 'Сотрудничество с SEDS',
@@ -1100,7 +1100,7 @@ Object.assign(translations.ru, {
 });
 
 Object.assign(translations.en, {
-  'about.stats.investment.label': 'million tenge investment',
+  'about.stats.investment.label': 'hackathons',
   'about.stats.graduates.label': 'graduates per year',
   'about.stats.directions.label': 'main directions',
   'seds.title': 'Partnership with SEDS',
@@ -1140,7 +1140,7 @@ Object.assign(translations.en, {
 });
 
 Object.assign(translations.kz, {
-  'about.stats.investment.label': 'млн. тенге инвестиция',
+  'about.stats.investment.label': 'хакатондар',
   'about.stats.graduates.label': 'жылына түлек',
   'about.stats.directions.label': 'негізгі бағыт',
   'seds.title': 'SEDS-пен серіктестік',
