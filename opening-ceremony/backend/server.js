@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import pkg from 'pg';
 import { v4 as uuidv4 } from 'uuid';
+import crypto from 'crypto';
 
 dotenv.config();
 
@@ -146,6 +147,90 @@ app.post('/api/wishes', async (req, res) => {
   } catch (err) {
     console.error('create error', err);
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Commit wishes to a simulated blockchain with Merkle root and tx hash
+app.post('/api/commit-to-blockchain', async (req, res) => {
+  try {
+    console.log('🔄 Starting blockchain commit process...');
+    const { rows: wishes } = await pool.query(
+      'SELECT id, full_name, message, created_at FROM wishes ORDER BY created_at'
+    );
+    if (!wishes || wishes.length === 0) {
+      return res.status(400).json({ error: 'No wishes to commit' });
+    }
+
+    const merkleRoot = generateMerkleRoot(wishes);
+    const totalWishes = wishes.length;
+    const transactionHash = generateTransactionHash(merkleRoot);
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS blockchain_commits (
+        id SERIAL PRIMARY KEY,
+        root_hash TEXT NOT NULL,
+        total_wishes INTEGER NOT NULL,
+        transaction_hash TEXT NOT NULL,
+        committed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      )
+    `);
+
+    await pool.query(
+      'INSERT INTO blockchain_commits (root_hash, total_wishes, transaction_hash) VALUES ($1, $2, $3)',
+      [merkleRoot, totalWishes, transactionHash]
+    );
+
+    // Simulate network delay
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    const result = {
+      success: true,
+      transactionHash,
+      rootHash: merkleRoot,
+      totalWishes,
+      blockNumber: Math.floor(Math.random() * 10000) + 15000000,
+      timestamp: new Date().toISOString()
+    };
+
+    io.emit('blockchain:commit', result);
+    console.log('✅ Blockchain commit successful:', result.transactionHash);
+    res.json(result);
+  } catch (err) {
+    console.error('❌ Blockchain commit error:', err);
+    res.status(500).json({ error: 'Blockchain simulation failed' });
+  }
+});
+
+function generateMerkleRoot(wishes) {
+  const dataString = wishes
+    .map((w) => `${w.id}${w.full_name}${w.message}${w.created_at}`)
+    .join('');
+  return crypto
+    .createHash('sha256')
+    .update(dataString + Date.now())
+    .digest('hex')
+    .substring(0, 32);
+}
+
+function generateTransactionHash(merkleRoot) {
+  return (
+    '0x' +
+    crypto
+      .createHash('sha256')
+      .update(merkleRoot + Date.now() + Math.random())
+      .digest('hex')
+      .substring(0, 64)
+  );
+}
+
+app.get('/api/blockchain-commits', async (_req, res) => {
+  try {
+    const { rows } = await pool.query(
+      'SELECT * FROM blockchain_commits ORDER BY committed_at DESC LIMIT 10'
+    );
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: 'Database error' });
   }
 });
 

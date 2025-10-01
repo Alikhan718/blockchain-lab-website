@@ -175,4 +175,35 @@ html, body { height: 100%; }
   .oc-button { width: 100%; }
 }
 
+/* Blockchain section */
+.blockchain-section { margin: 40px auto; max-width: 800px; text-align: center; }
+.commit-controls { background: rgba(33,33,33,0.9); border: 2px solid #d2ff1e; border-radius: 15px; padding: 30px; margin: 20px 0; }
+.commit-button { background: linear-gradient(135deg, #d2ff1e, #b8e01a); color: #162c1b; border: none; padding: 20px 40px; font-size: 1.5rem; border-radius: 50px; cursor: pointer; margin: 15px 0; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(210,255,30,0.3); font-weight: 900; }
+.commit-button:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(210,255,30,0.5); }
+.commit-button:disabled { background: #666; cursor: not-allowed; transform: none; box-shadow: none; }
+.commit-stats { color: #d2ff1e; font-size: 1.2rem; margin-top: 15px; }
+
+/* Mining animation */
+.mining-animation { padding: 30px; }
+.block { display: inline-block; width: 30px; height: 30px; background: #d2ff1e; margin: 0 10px; border-radius: 5px; animation: mine 1.5s infinite; }
+.block:nth-child(2) { animation-delay: 0.2s; }
+.block:nth-child(3) { animation-delay: 0.4s; }
+@keyframes mine { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.7; } }
+.loading-text { color: #d2ff1e; font-size: 1.2rem; margin-top: 20px; }
+
+/* Transaction result */
+.success-result { background: rgba(33,33,33,0.95); border: 2px solid #d2ff1e; border-radius: 15px; padding: 30px; margin: 20px 0; animation: fadeIn 0.5s ease; }
+.success-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; }
+.success-header h3 { color: #d2ff1e; margin: 0; font-size: 1.8rem; }
+.success-icon { font-size: 2.5rem; }
+.transaction-details { text-align: left; background: rgba(22,44,27,0.5); padding: 20px; border-radius: 10px; }
+.detail { margin: 15px 0; display: flex; align-items: flex-start; }
+.detail label { color: #d2ff1e; min-width: 120px; }
+.transaction-hash, .root-hash { background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 5px; font-family: monospace; word-break: break-all; color: #f4f4f4; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Confetti */
+.confetti { position: fixed; width: 10px; height: 10px; background: #d2ff1e; animation: fall 3s linear forwards; pointer-events: none; }
+@keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+
 

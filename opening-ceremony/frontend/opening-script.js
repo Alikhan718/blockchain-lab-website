@@ -76,6 +76,8 @@ function mountDashboard() {
   if (typeof io !== 'undefined' && BACKEND_URL) {
     try {
       const socket = io(BACKEND_URL, { transports: ['websocket'], reconnection: true });
+      // expose globally for BlockchainManager
+      window.__OC_SOCKET__ = socket;
       socket.on('connect', () => { socketConnected = true; });
       socket.on('disconnect', () => { socketConnected = false; });
       socket.on('wish:count', (data) => {
@@ -209,6 +211,10 @@ function mountForm() {
 document.addEventListener('DOMContentLoaded', () => {
   mountDashboard();
   mountForm();
+  // Initialize blockchain section if present
+  if (document.getElementById('commitButton')) {
+    new BlockchainManager();
+  }
 });
 
 // Deployment notes:
@@ -251,4 +257,119 @@ function launchConfetti() {
   }
 }
 
+// Blockchain functionality
+class BlockchainManager {
+  constructor() {
+    this.commitButton = document.getElementById('commitButton');
+    this.transactionStatus = document.getElementById('transactionStatus');
+    this.blockchainAnimation = document.getElementById('blockchainAnimation');
+    this.successResult = document.getElementById('successResult');
+    this.readyWishesCount = document.getElementById('readyWishesCount');
+    this.socket = window.__OC_SOCKET__;
+    this.init();
+  }
+
+  init() {
+    if (this.commitButton) {
+      this.commitButton.addEventListener('click', () => this.commitToBlockchain());
+    }
+    if (this.socket) {
+      this.socket.on('wish:count', (data) => {
+        if (data && typeof data.count === 'number') {
+          this.readyWishesCount.textContent = data.count;
+        }
+      });
+      this.socket.on('blockchain:commit', (data) => {
+        this.showSuccess(data);
+      });
+    }
+    this.updateWishesCount();
+  }
+
+  async updateWishesCount() {
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/wishes/count`);
+      const data = await response.json();
+      this.readyWishesCount.textContent = data.count;
+    } catch (error) {
+      console.error('Failed to get wishes count:', error);
+    }
+  }
+
+  async commitToBlockchain() {
+    this.commitButton.disabled = true;
+    this.commitButton.textContent = '🚀 COMMITTING...';
+    this.transactionStatus.style.display = 'block';
+    this.blockchainAnimation.style.display = 'block';
+    this.successResult.style.display = 'none';
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/commit-to-blockchain`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const result = await response.json();
+      if (!result.success) throw new Error(result.error || 'Commit failed');
+      // Success will also be delivered via socket
+      console.log('Commit initiated:', result);
+    } catch (error) {
+      console.error('Blockchain commit failed:', error);
+      this.showError('Error: ' + error.message);
+    }
+  }
+
+  showSuccess(data) {
+    this.blockchainAnimation.style.display = 'none';
+    this.successResult.style.display = 'block';
+    document.getElementById('transactionHash').textContent = data.transactionHash;
+    document.getElementById('blockNumber').textContent = data.blockNumber;
+    document.getElementById('committedWishes').textContent = data.totalWishes;
+    document.getElementById('rootHash').textContent = data.rootHash;
+    this.startCelebration();
+    this.updateWishesCount();
+    this.commitButton.disabled = false;
+    this.commitButton.textContent = '🚀 COMMIT TO BLOCKCHAIN';
+  }
+
+  showError(message) {
+    alert(message);
+    this.commitButton.disabled = false;
+    this.commitButton.textContent = '🚀 COMMIT TO BLOCKCHAIN';
+    this.transactionStatus.style.display = 'none';
+  }
+
+  startCelebration() {
+    for (let i = 0; i < 50; i++) { this.createConfetti(); }
+    this.playSuccessSound();
+  }
+
+  createConfetti() {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDelay = Math.random() * 2 + 's';
+    confetti.style.background = this.getRandomColor();
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+  }
+
+  getRandomColor() {
+    const colors = ['#d2ff1e', '#162c1b', '#f4f4f4', '#ff6b6b', '#4ecdc4'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  playSuccessSound() {
+    try {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 1);
+    } catch {}
+  }
+}
 

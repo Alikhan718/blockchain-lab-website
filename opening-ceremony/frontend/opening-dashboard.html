@@ -33,6 +33,50 @@
       </div>
       <div id="bubbleStage" class="oc-bubble-stage" aria-hidden="true"></div>
     </section>
+
+    <!-- Blockchain section: moved outside stage to avoid overlap with center counter -->
+    <div class="blockchain-section" id="blockchainSection">
+      <div class="commit-controls">
+        <button id="commitButton" class="commit-button">🚀 COMMIT TO BLOCKCHAIN</button>
+        <div class="commit-stats">Ready to commit: <span id="readyWishesCount">0</span> notes</div>
+      </div>
+
+      <div class="transaction-status" id="transactionStatus" style="display: none;">
+        <div class="blockchain-animation" id="blockchainAnimation">
+          <div class="mining-animation">
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="loading-text">Mining on KazSmartChain...</div>
+          </div>
+        </div>
+
+        <div class="success-result" id="successResult" style="display: none;">
+          <div class="success-header">
+            <span class="success-icon">✅</span>
+            <h3>SUCCESSFULLY COMMITTED!</h3>
+          </div>
+          <div class="transaction-details">
+            <div class="detail">
+              <label>Transaction:</label>
+              <code class="transaction-hash" id="transactionHash"></code>
+            </div>
+            <div class="detail">
+              <label>Block:</label>
+              <span id="blockNumber"></span>
+            </div>
+            <div class="detail">
+              <label>Total wishes:</label>
+              <span id="committedWishes"></span>
+            </div>
+            <div class="detail">
+              <label>Merkle Root:</label>
+              <code class="root-hash" id="rootHash"></code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- Config: Set BACKEND_URL after deploy -->
