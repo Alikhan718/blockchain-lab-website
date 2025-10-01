@@ -332,6 +332,7 @@ class BlockchainManager {
     document.getElementById('blockNumber').textContent = data.blockNumber;
     document.getElementById('committedWishes').textContent = data.totalWishes;
     document.getElementById('rootHash').textContent = data.rootHash;
+    this.decorateSuccessCard();
     this.startCelebration();
     this.updateWishesCount();
     this.commitButton.disabled = false;
@@ -346,7 +347,13 @@ class BlockchainManager {
   }
 
   startCelebration() {
-    for (let i = 0; i < 50; i++) { this.createConfetti(); }
+    for (let i = 0; i < 80; i++) { this.createConfetti(); }
+    // Fireworks bursts
+    setTimeout(() => this.firework(window.innerWidth*0.25, window.innerHeight*0.3), 100);
+    setTimeout(() => this.firework(window.innerWidth*0.75, window.innerHeight*0.35), 250);
+    setTimeout(() => this.firework(window.innerWidth*0.5, window.innerHeight*0.25), 450);
+    // Ambient sparkles
+    for (let i = 0; i < 20; i++) { this.sparkle(); }
     this.playSuccessSound();
   }
 
@@ -378,6 +385,44 @@ class BlockchainManager {
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 1);
     } catch {}
+  }
+
+  decorateSuccessCard() {
+    if (!this.successResult.querySelector('.success-aura')) {
+      const aura = document.createElement('div');
+      aura.className = 'success-aura';
+      this.successResult.classList.add('celebrate');
+      this.successResult.prepend(aura);
+    }
+  }
+
+  firework(x, y) {
+    const container = document.createElement('div');
+    container.className = 'fw';
+    document.body.appendChild(container);
+    const particles = 24;
+    for (let i = 0; i < particles; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'fw-dot';
+      const angle = (Math.PI * 2 * i) / particles;
+      const dist = 120 + Math.random() * 60;
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+      dot.style.background = this.getRandomColor();
+      dot.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+      dot.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+      container.appendChild(dot);
+    }
+    setTimeout(() => container.remove(), 1000);
+  }
+
+  sparkle() {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.top = (60 + Math.random() * 30) + 'vh';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1400);
   }
 }
 
