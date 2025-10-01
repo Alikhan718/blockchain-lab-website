@@ -307,10 +307,18 @@ class BlockchainManager {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
-      const result = await response.json();
-      if (!result.success) throw new Error(result.error || 'Commit failed');
-      // Success will also be delivered via socket
+      const contentType = response.headers.get('content-type') || '';
+      const bodyText = await response.text();
+      let result;
+      try {
+        result = contentType.includes('application/json') ? JSON.parse(bodyText) : JSON.parse(bodyText);
+      } catch (e) {
+        throw new Error(`Unexpected response (${response.status}): ${bodyText.slice(0, 120)}`);
+      }
+      if (!response.ok || !result.success) throw new Error(result.error || 'Commit failed');
+      // Show success immediately; socket will still broadcast to other clients
       console.log('Commit initiated:', result);
+      this.showSuccess(result);
     } catch (error) {
       console.error('Blockchain commit failed:', error);
       this.showError('Error: ' + error.message);
