@@ -176,7 +176,7 @@ html, body { height: 100%; }
 }
 
 /* Blockchain section */
-.blockchain-section { margin: 40px auto; max-width: 800px; text-align: center; }
+.blockchain-section { margin: 200px auto; text-align: center; }
 .commit-controls { background: rgba(33,33,33,0.9); border: 2px solid #d2ff1e; border-radius: 15px; padding: 30px; margin: 20px 0; }
 .commit-button { background: linear-gradient(135deg, #d2ff1e, #b8e01a); color: #162c1b; border: none; padding: 20px 40px; font-size: 1.5rem; border-radius: 50px; cursor: pointer; margin: 15px 0; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(210,255,30,0.3); font-weight: 900; }
 .commit-button:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(210,255,30,0.5); }
