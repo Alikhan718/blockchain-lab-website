@@ -298,7 +298,7 @@ class BlockchainManager {
 
   async commitToBlockchain() {
     this.commitButton.disabled = true;
-    this.commitButton.textContent = '🚀 COMMITTING...';
+    this.commitButton.textContent = '🚀 PROCESSING TRANSACTION...';
     this.transactionStatus.style.display = 'block';
     this.blockchainAnimation.style.display = 'block';
     this.successResult.style.display = 'none';
