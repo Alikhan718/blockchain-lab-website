@@ -335,6 +335,9 @@ class BlockchainManager {
     this.decorateSuccessCard();
     this.startCelebration();
     this.updateWishesCount();
+    // Hide commit controls after success to avoid re-committing
+    const controls = this.commitButton?.closest('.commit-controls');
+    if (controls) controls.classList.add('hidden');
     this.commitButton.disabled = false;
     this.commitButton.textContent = '🚀 COMMIT TO BLOCKCHAIN';
   }
@@ -344,6 +347,9 @@ class BlockchainManager {
     this.commitButton.disabled = false;
     this.commitButton.textContent = '🚀 COMMIT TO BLOCKCHAIN';
     this.transactionStatus.style.display = 'none';
+    // Ensure controls are visible again if they were hidden
+    const controls = this.commitButton?.closest('.commit-controls');
+    if (controls) controls.classList.remove('hidden');
   }
 
   startCelebration() {
